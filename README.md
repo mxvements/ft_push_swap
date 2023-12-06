@@ -109,6 +109,7 @@ At 42 School, it is expected that almost every project is written in accordance 
 - ...
 ```
 ## Aknowledgments
++ [Alrgorithms in C](https://theswissbay.ch/pdf/Gentoomen%20Library/Algorithms/Algorithms%20in%20C.pdf)
 
 # License
 [MIT License](https://github.com/mxvements/ft_license/blob/main/LICENSE.txt)
