@@ -3,14 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/02 18:37:38 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:34:13 by luciama2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_dllprint(t_dll **head)
+{
+	t_dll	*tmp = *head;
+	int		*tmpnbr;
+	while(tmp != NULL)
+	{
+		tmpnbr = (int *)(tmp->content);
+		printf("mem: %p\n", tmp);
+		printf("content: %d\n", *tmpnbr);
+		tmp = tmp->next;
+	}
+}
+
+t_dll	**getnode(t_dll **stack_a, char *s)
+{
+	int		nbr;
+	t_dll 	*node;
+	
+	nbr = ft_atoi(s);
+	free(s);
+	
+	printf("%d\n", nbr);
+	node = ft_dllnew((void *)ft_intdup(nbr));
+	if (*stack_a == NULL)
+		*stack_a = node;
+	else
+		ft_dlladd_front(stack_a, node);
+	/* 
+	* no sé muy bien como continuar..
+	*/
+return (stack_a);
+}
 
 size_t	a_getstate(int i, int j)
 {
@@ -28,6 +61,7 @@ size_t	a_getstate(int i, int j)
 	};
 	return (t_states[i][j]);
 }
+
 size_t	a_changestate(char c, size_t state)
 {
 	size_t	ostate;
@@ -42,13 +76,13 @@ size_t	a_changestate(char c, size_t state)
 		ostate = a_getstate(state, 4);
 	return (ostate);
 }
-void	a_evaluate(char *s)
+
+t_dll	**a_evaluate(char *s, t_dll **stack_a)
 {
 	size_t	i;
 	size_t	state;
 	size_t	ostate;
 	size_t	startnbr;
-	int		nbr;
 
 	i = 0;
 	state = 0;
@@ -59,20 +93,27 @@ void	a_evaluate(char *s)
 			startnbr = i;
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
-			nbr = ft_atoi(ft_substr(s, startnbr, (i - startnbr + 1)));
-			printf("%d\n", nbr); //ADD NODE
+			stack_a = getnode(stack_a, ft_substr(s, startnbr, (i - startnbr + 1)));
 		}
 		if (state == 1)
 			printf("error\n");
 		state = ostate;
 		i++;
 	}
-
+	return (stack_a);
 }
+
 int main(void)
 {
 	char *s = "4 67 -3 87 23"; //5 nbrss
-	a_evaluate(s);
+	t_dll	**stack_a;
+	
+	stack_a = (t_dll **)malloc(sizeof(t_dll *));
+	if (!stack_a)
+		return (0);
+	stack_a = a_evaluate(s, stack_a);
+	printf("%d\n", ft_dllsize(*stack_a));
+	ft_dllprint(stack_a);
 
 	return (0);
-}
+

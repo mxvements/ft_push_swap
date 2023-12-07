@@ -23,7 +23,7 @@ LIBFT=libft/libft.a
 all: $(NAME)
 
 $(NAME): $(MY_OBJECTS)
-	make -C $(LIBFT_DIR)
+	make extra -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(MY_OBJECTS) $(LIBFT) -o $(NAME)
 
 clean:
