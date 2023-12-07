@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/07 16:34:13 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:39:58 by luciama2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_dllprint(t_dll **head)
 		tmpnbr = (int *)(tmp->content);
 		printf("mem: %p\n", tmp);
 		printf("content: %d\n", *tmpnbr);
-		tmp = tmp->next;
+		tmp = tmp->prev;
 	}
 }
 
@@ -116,4 +116,4 @@ int main(void)
 	ft_dllprint(stack_a);
 
 	return (0);
-
+}
