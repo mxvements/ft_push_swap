@@ -23,9 +23,16 @@ t_dll	**initnode(t_dll **stack_a, char *s)
 return (stack_a);
 }
 
+t_dll	**errorstate(t_dll **stack)
+{
+	s_free(stack);
+	printf("Error\n");
+	return (NULL); //should  be NULL
+}
+
 size_t	a_getstate(int i, int j)
 {
-	//i -> state from which were moving
+	//i -> state from which we're moving
 	//j -> state into which we move to
 	size_t	t_states[][5] =
 	{
@@ -51,7 +58,7 @@ size_t	a_changestate(char c, size_t state)
 	else if (isdigit(c) != 0) //ft_isdigit()
 		ostate = a_getstate(state, 2);
 	else
-		ostate = a_getstate(state, 4);
+		ostate = a_getstate(state, 3);
 	return (ostate);
 }
 
@@ -76,8 +83,8 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 			stack_a = initnode(stack_a, sbstr);
 			free(sbstr);
 		}
-		if (state == 1)
-			printf("error\n");
+		if (ostate == 1)
+			return (errorstate(stack_a));
 		state = ostate;
 		i++;
 	}

@@ -17,8 +17,11 @@ void	s_print(t_dll **head)
 	size_t	i;
 	t_dll	*tmp;
 
-	if (*head == NULL)
-		printf("empty list");
+	if (head == NULL || *head == NULL)
+	{
+		printf("empty list\n");
+		return ;
+	}
 	tmp = *head;
 	i = 1;
 	while (tmp)
@@ -27,6 +30,8 @@ void	s_print(t_dll **head)
 		i++;
 		tmp = tmp->prev;
 	}
+	//printf("-\n");
+	//printf("a\n");//at some point i would need a struct for the head to save this
 	return ;
 }
 
@@ -57,12 +62,13 @@ void	*s_pop(t_dll **head)
 	return (popnode);
 
 }
+
 int		s_size(t_dll **head)
 {
 	int		count;
 	t_dll	*tmp;
 
-	if (!head)
+	if (!head || !(*head))
 		return (0);
 	tmp = *head;
 	count = 0;
@@ -72,4 +78,20 @@ int		s_size(t_dll **head)
 		tmp = tmp->prev;
 	}
 	return (count);
+}
+
+void	s_free(t_dll **head)
+{
+	t_dll	*tmp;
+	tmp = *head;
+	while (tmp)
+	{
+		free(tmp->content);
+		tmp->content = NULL;
+		free(tmp->next);
+		tmp->next = NULL;
+		tmp = tmp->prev;
+	}
+	free(head);
+	head = NULL;
 }
