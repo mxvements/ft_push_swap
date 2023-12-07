@@ -6,19 +6,17 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/07 23:55:10 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/08 00:03:14 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 
-t_dll	**initnode(t_dll **stack_a, char *s)
+t_dll	**initnode(t_dll **stack_a, int nbr)
 {
-	int		nbr;
 	t_dll 	*node;
 	
-	nbr = ft_atoi(s);
 	node = ft_dllnew((void *)ft_intdup(nbr));
 	ft_dlladd_back(stack_a, node);
 	return (stack_a);
@@ -70,7 +68,7 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 	size_t	state;
 	size_t	ostate;
 	size_t	startnbr;
-	char	*sbstr;
+	int		nbr;
 
 	i = 0;
 	state = 0;
@@ -81,9 +79,8 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 			startnbr = i;
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
-			sbstr = ft_substr(s, startnbr, (i - startnbr + 1));
-			stack_a = initnode(stack_a, sbstr);
-			free(sbstr);
+			nbr = ft_atoi(s + startnbr);
+			stack_a = initnode(stack_a, nbr);
 		}
 		if (ostate == 1)
 			return (errorstate(stack_a));
