@@ -6,34 +6,22 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/07 23:28:17 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/07 23:55:10 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_dllprint(t_dll **head)
-{
-	t_dll	*tmp = *head;
-	int		*tmpnbr;
-	while(tmp != NULL)
-	{
-		tmpnbr = (int *)(tmp->content);
-		printf("mem: %p\n", tmp);
-		printf("content: %d\n", *tmpnbr);
-		tmp = tmp->prev;
-	}
-}
 
-t_dll	**getnode(t_dll **stack_a, char *s)
+t_dll	**initnode(t_dll **stack_a, char *s)
 {
 	int		nbr;
 	t_dll 	*node;
 	
 	nbr = ft_atoi(s);
 	node = ft_dllnew((void *)ft_intdup(nbr));
-	s_push(stack_a, node); //USE ft_dlladd_back!!!
-return (stack_a);
+	ft_dlladd_back(stack_a, node);
+	return (stack_a);
 }
 
 t_dll	**errorstate(t_dll **stack)
@@ -116,9 +104,7 @@ int main(void)
 	stack_a = a_evaluate(s, stack_a);
 	printf("size: %d\n", s_size(stack_a));
 	s_print(stack_a);
-	//system("leaks -q push_swap");
-
-	//numeros al reves!
+	system("leaks -q push_swap");
 
 	return (0);
 }

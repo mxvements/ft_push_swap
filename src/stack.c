@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:54:43 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/07 16:54:44 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/07 23:43:32 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	s_print(t_dll **head)
 	{
 		printf("node %zu: %p -> %d\n", i, tmp->content, *(int *)(tmp->content));
 		i++;
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
 	//printf("-\n");
 	//printf("a\n");//at some point i would need a struct for the head to save this
@@ -43,8 +43,8 @@ void 	s_push(t_dll **head, t_dll *newnode)
 		return ;
 	oldhead = *head;
 	if (oldhead != NULL)
-		oldhead->next = newnode; //error with -fsanitize:address
-	newnode->prev = oldhead;
+		oldhead->prev = newnode; //error with -fsanitize:address
+	newnode->next = oldhead;
 	*head = newnode;
 	return ;
 }
@@ -58,7 +58,7 @@ void	*s_pop(t_dll **head)
 		return (NULL);
 	popnode = (*head)->content;
 	tmp = *head;
-	*head = (*head)->prev;
+	*head = (*head)->next;
 	free(tmp);
 	return (popnode);
 
@@ -76,7 +76,7 @@ int		s_size(t_dll **head)
 	while (tmp)
 	{
 		count++;
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
 	return (count);
 }
