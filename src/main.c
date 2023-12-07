@@ -26,8 +26,9 @@ return (stack_a);
 t_dll	**errorstate(t_dll **stack)
 {
 	s_free(stack);
+	stack = NULL;
 	printf("Error\n");
-	return (NULL); //should  be NULL
+	return (stack);
 }
 
 size_t	a_getstate(int i, int j)

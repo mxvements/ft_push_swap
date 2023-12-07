@@ -83,6 +83,7 @@ int		s_size(t_dll **head)
 void	s_free(t_dll **head)
 {
 	t_dll	*tmp;
+	
 	tmp = *head;
 	while (tmp)
 	{
