@@ -6,13 +6,26 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/07 16:39:58 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/07 23:28:17 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_dll	**initnode(t_dll **stack_a, char *s)
+void	ft_dllprint(t_dll **head)
+{
+	t_dll	*tmp = *head;
+	int		*tmpnbr;
+	while(tmp != NULL)
+	{
+		tmpnbr = (int *)(tmp->content);
+		printf("mem: %p\n", tmp);
+		printf("content: %d\n", *tmpnbr);
+		tmp = tmp->prev;
+	}
+}
+
+t_dll	**getnode(t_dll **stack_a, char *s)
 {
 	int		nbr;
 	t_dll 	*node;
@@ -94,7 +107,7 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 
 int main(void)
 {
-	char *s = "4 67 -3 87 23"; //5 nbrss
+	char *s = "4 67 -3 87 23"; //5 nbrs
 	t_dll	**stack_a;
 	
 	stack_a = (t_dll **)malloc(sizeof(t_dll *));
