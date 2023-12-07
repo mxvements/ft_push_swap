@@ -60,7 +60,7 @@ void	a_evaluate(char *s)
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
 			nbr = ft_atoi(ft_substr(s, startnbr, (i - startnbr + 1)));
-			printf("%d\n", nbr); //add node
+			printf("%d\n", nbr); //ADD NODE
 		}
 		if (state == 1)
 			printf("error\n");
