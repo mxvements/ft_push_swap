@@ -8,7 +8,8 @@ NAME=push_swap
 
 MY_SOURCES_DIR=src
 
-MY_SOURCES=		src/main.c
+MY_SOURCES=		src/main.c \
+				src/stack.c
 
 MY_OBJECTS=$(MY_SOURCES:%.c=%.o)
 

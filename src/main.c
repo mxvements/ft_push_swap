@@ -22,7 +22,7 @@ void	ft_dllprint(t_dll **head)
 		printf("mem: %p\n", tmp);
 		printf("content: %d\n", *tmpnbr);
 		tmp = tmp->prev;
-	}
+	} //USE STACK FUNCT
 }
 
 t_dll	**getnode(t_dll **stack_a, char *s)
@@ -38,7 +38,7 @@ t_dll	**getnode(t_dll **stack_a, char *s)
 	if (*stack_a == NULL)
 		*stack_a = node;
 	else
-		ft_dlladd_front(stack_a, node);
+		ft_dlladd_front(stack_a, node); //USE STACK FUNCT
 	/* 
 	* no sé muy bien como continuar..
 	*/
