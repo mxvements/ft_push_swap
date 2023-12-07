@@ -12,14 +12,12 @@
 
 #include "../include/push_swap.h"
 
-t_dll	**getnode(t_dll **stack_a, char *s)
+t_dll	**initnode(t_dll **stack_a, char *s)
 {
 	int		nbr;
 	t_dll 	*node;
 	
 	nbr = ft_atoi(s);
-	
-	printf("%d\n", nbr);
 	node = ft_dllnew((void *)ft_intdup(nbr));
 	s_push(stack_a, node);
 return (stack_a);
@@ -75,7 +73,7 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
 			sbstr = ft_substr(s, startnbr, (i - startnbr + 1));
-			stack_a = getnode(stack_a, sbstr);
+			stack_a = initnode(stack_a, sbstr);
 			free(sbstr);
 		}
 		if (state == 1)
