@@ -38,11 +38,12 @@ void	s_print(t_dll **head)
 void 	s_push(t_dll **head, t_dll *newnode)
 {
 	t_dll	*oldhead;
-	if (head == NULL)
+
+	if (!head || !newnode)
 		return ;
 	oldhead = *head;
 	if (oldhead != NULL)
-		oldhead->next = newnode;
+		oldhead->next = newnode; //error with -fsanitize:address
 	newnode->prev = oldhead;
 	*head = newnode;
 	return ;
@@ -83,7 +84,7 @@ int		s_size(t_dll **head)
 void	s_free(t_dll **head)
 {
 	t_dll	*tmp;
-	
+
 	tmp = *head;
 	while (tmp)
 	{

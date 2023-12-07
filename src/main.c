@@ -19,7 +19,7 @@ t_dll	**initnode(t_dll **stack_a, char *s)
 	
 	nbr = ft_atoi(s);
 	node = ft_dllnew((void *)ft_intdup(nbr));
-	s_push(stack_a, node);
+	s_push(stack_a, node); //USE ft_dlladd_back!!!
 return (stack_a);
 }
 
@@ -103,6 +103,9 @@ int main(void)
 	stack_a = a_evaluate(s, stack_a);
 	printf("size: %d\n", s_size(stack_a));
 	s_print(stack_a);
+	//system("leaks -q push_swap");
+
+	//numeros al reves!
 
 	return (0);
 }
