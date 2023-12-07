@@ -21,5 +21,9 @@
 # include <ctype.h>
 # include "../libft/libft.h"
 
+void	s_print(t_dll **head);
+void 	s_push(t_dll **head, t_dll *newnode);
+void	*s_pop(t_dll **head);
+int		s_size(t_dll **head);
 
 #endif

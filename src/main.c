@@ -12,36 +12,16 @@
 
 #include "../include/push_swap.h"
 
-void	ft_dllprint(t_dll **head)
-{
-	t_dll	*tmp = *head;
-	int		*tmpnbr;
-	while(tmp != NULL)
-	{
-		tmpnbr = (int *)(tmp->content);
-		printf("mem: %p\n", tmp);
-		printf("content: %d\n", *tmpnbr);
-		tmp = tmp->prev;
-	} //USE STACK FUNCT
-}
-
 t_dll	**getnode(t_dll **stack_a, char *s)
 {
 	int		nbr;
 	t_dll 	*node;
 	
 	nbr = ft_atoi(s);
-	free(s);
 	
 	printf("%d\n", nbr);
 	node = ft_dllnew((void *)ft_intdup(nbr));
-	if (*stack_a == NULL)
-		*stack_a = node;
-	else
-		ft_dlladd_front(stack_a, node); //USE STACK FUNCT
-	/* 
-	* no sé muy bien como continuar..
-	*/
+	s_push(stack_a, node);
 return (stack_a);
 }
 
@@ -83,6 +63,7 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 	size_t	state;
 	size_t	ostate;
 	size_t	startnbr;
+	char	*sbstr;
 
 	i = 0;
 	state = 0;
@@ -93,7 +74,9 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 			startnbr = i;
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
-			stack_a = getnode(stack_a, ft_substr(s, startnbr, (i - startnbr + 1)));
+			sbstr = ft_substr(s, startnbr, (i - startnbr + 1));
+			stack_a = getnode(stack_a, sbstr);
+			free(sbstr);
 		}
 		if (state == 1)
 			printf("error\n");
@@ -112,8 +95,8 @@ int main(void)
 	if (!stack_a)
 		return (0);
 	stack_a = a_evaluate(s, stack_a);
-	printf("%d\n", ft_dllsize(*stack_a));
-	ft_dllprint(stack_a);
+	printf("size: %d\n", s_size(stack_a));
+	s_print(stack_a);
 
 	return (0);
 }
