@@ -12,32 +12,6 @@
 
 #include "../include/push_swap.h"
 
-t_dll	**s_inithead(void)
-{
-	t_dll	**stack;
-
-	stack = (t_dll **)malloc(sizeof(t_dll *));
-	if (!stack)
-		return (0);
-	*stack = NULL;
-	return (stack);
-}
-int	s_isnodedup(t_dll **head, t_dll *node)
-{
-	t_dll	*tmp;
-	int		flag;
-
-	flag = 0;
-	tmp = *head;
-	while (tmp)
-	{
-		if (*(int *)(tmp->content) == *(int *)(node->content))
-			flag = 1;
-		tmp = tmp->next;
-	}
-	return(flag);
-}
-
 int main(void)
 {
 	char *s = "4 6 2147483647 -3 7 23";

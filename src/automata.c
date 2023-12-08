@@ -34,8 +34,7 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 	node = ft_dllnew((void *)(ft_intdup(nbr)));
 	if (s_isnodedup(stack_a, node) == 1)
 	{
-		free(node->content);
-		free(node);
+		s_freenode(node);
 		return (evalerror(stack_a));
 	}
 	ft_dlladd_back(stack_a, node);

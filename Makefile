@@ -9,7 +9,8 @@ NAME=push_swap
 MY_SOURCES_DIR=src
 
 MY_SOURCES=		src/main.c \
-				src/stack.c \
+				src/stack1.c \
+				src/stack2.c \
 				src/automata.c
 
 MY_OBJECTS=$(MY_SOURCES:%.c=%.o)

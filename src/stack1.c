@@ -81,19 +81,13 @@ int		s_size(t_dll **head)
 	return (count);
 }
 
-void	s_free(t_dll **head)
+t_dll	**s_inithead(void)
 {
-	t_dll	*tmp;
-	t_dll	*tmpnext;
+	t_dll	**stack;
 
-	tmp = *head;
-	while (tmp != NULL) 
-	{
-		tmpnext = tmp->next;
-		free(tmp->content);
-		tmp->content = NULL;
-		free(tmp);
-		tmp = tmpnext;
-	}
-	free(head);
+	stack = (t_dll **)malloc(sizeof(t_dll *));
+	if (!stack)
+		return (0);
+	*stack = NULL;
+	return (stack);
 }
