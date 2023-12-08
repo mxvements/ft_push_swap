@@ -32,7 +32,13 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 	if (flag < 0)
 		return (evalerror(stack_a));
 	node = ft_dllnew((void *)(ft_intdup(nbr)));
-	ft_dlladd_back(stack_a, node); //check not duplicated
+	if (s_isnodedup(stack_a, node) == 1)
+	{
+		free(node->content);
+		free(node);
+		return (evalerror(stack_a));
+	}
+	ft_dlladd_back(stack_a, node);
 	return (stack_a);
 }
 

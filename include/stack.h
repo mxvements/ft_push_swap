@@ -15,6 +15,8 @@
 
 # include "push_swap.h"
 
+t_dll	**s_inithead(void);
+int		s_isnodedup(t_dll **head, t_dll *node);
 void	s_print(t_dll **head);
 void 	s_push(t_dll **head, t_dll *newnode);
 void	*s_pop(t_dll **head);
