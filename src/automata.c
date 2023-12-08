@@ -12,21 +12,28 @@
 
 #include "../include/push_swap.h"
 
-t_dll	**evalnewnode(t_dll **stack_a, int nbr)
-{
-	t_dll 	*node;
-	
-	node = ft_dllnew((void *)ft_intdup(nbr));
-	ft_dlladd_back(stack_a, node);
-	return (stack_a);
-}
-
 t_dll	**evalerror(t_dll **stack)
 {
 	s_free(stack);
 	stack = NULL;
 	printf("Error\n");
+	
 	return (stack);
+}
+
+t_dll	**evalnewnode(t_dll **stack_a, const char *s)
+{
+	t_dll 	*node;
+	int		nbr;
+	int		flag;
+
+	flag = 0;
+	nbr = ft_atoif(s, &flag);
+	if (flag < 0)
+		return (evalerror(stack_a));
+	node = ft_dllnew((void *)(ft_intdup(nbr)));
+	ft_dlladd_back(stack_a, node); //check not duplicated
+	return (stack_a);
 }
 
 /**
@@ -64,7 +71,7 @@ size_t	a_changestate(char c, size_t state)
 		ostate = a_getstate(state, 0);
 	else if (c == '-')
 		ostate = a_getstate(state, 1);
-	else if (isdigit(c) != 0) //ft_isdigit()
+	else if (ft_isdigit(c) != 0)
 		ostate = a_getstate(state, 2);
 	else
 		ostate = a_getstate(state, 3);
@@ -77,7 +84,6 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 	size_t	state;
 	size_t	ostate;
 	size_t	startnbr;
-	int		nbr;
 
 	i = 0;
 	state = 0;
@@ -88,8 +94,9 @@ t_dll	**a_evaluate(char *s, t_dll **stack_a)
 			startnbr = i;
 		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
 		{
-			nbr = ft_atoi(s + startnbr);
-			stack_a = evalnewnode(stack_a, nbr);
+			stack_a = evalnewnode(stack_a, (s + startnbr));
+			if (!stack_a)
+				return (NULL);
 		}
 		if (ostate == 1)
 			return (evalerror(stack_a));

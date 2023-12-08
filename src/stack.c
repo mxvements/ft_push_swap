@@ -84,16 +84,16 @@ int		s_size(t_dll **head)
 void	s_free(t_dll **head)
 {
 	t_dll	*tmp;
+	t_dll	*tmpnext;
 
 	tmp = *head;
-	while (tmp)
+	while (tmp != NULL) 
 	{
+		tmpnext = tmp->next;
 		free(tmp->content);
 		tmp->content = NULL;
-		free(tmp->next);
-		tmp->next = NULL;
-		tmp = tmp->prev;
+		free(tmp);
+		tmp = tmpnext;
 	}
 	free(head);
-	head = NULL;
 }
