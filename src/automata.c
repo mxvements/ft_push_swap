@@ -17,13 +17,12 @@ t_dll	**evalerror(t_dll **stack)
 	s_free(stack);
 	stack = NULL;
 	printf("Error\n");
-	
 	return (stack);
 }
 
 t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 {
-	t_dll 	*node;
+	t_dll	*node;
 	int		nbr;
 	int		flag;
 
@@ -57,14 +56,14 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
  */
 size_t	a_getstate(int i, int j)
 {
-	size_t	t_states[][5] =
-	{
-		{0, 2, 3, 1},
-		{1, 1, 1, 1},
-		{1, 1, 3, 1},
-		{4, 1, 3, 1},
-		{1, 2, 3, 1},
+	const size_t	t_states[][5] = {\
+		{0, 2, 3, 1}, \
+		{1, 1, 1, 1}, \
+		{1, 1, 3, 1}, \
+		{4, 1, 3, 1}, \
+		{1, 2, 3, 1} \
 	};
+
 	return (t_states[i][j]);
 }
 

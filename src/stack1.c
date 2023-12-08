@@ -30,12 +30,10 @@ void	s_print(t_dll **head)
 		i++;
 		tmp = tmp->next;
 	}
-	//printf("-\n");
-	//printf("a\n");//at some point i would need a struct for the head to save this
 	return ;
 }
 
-void 	s_push(t_dll **head, t_dll *newnode)
+void	s_push(t_dll **head, t_dll *newnode)
 {
 	t_dll	*oldhead;
 
@@ -61,10 +59,9 @@ void	*s_pop(t_dll **head)
 	*head = (*head)->next;
 	free(tmp);
 	return (popnode);
-
 }
 
-int		s_size(t_dll **head)
+int	s_size(t_dll **head)
 {
 	int		count;
 	t_dll	*tmp;

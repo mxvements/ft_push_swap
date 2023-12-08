@@ -25,7 +25,7 @@ int	s_isnodedup(t_dll **head, t_dll *node)
 			flag = 1;
 		tmp = tmp->next;
 	}
-	return(flag);
+	return (flag);
 }
 
 void	s_free(t_dll **head)
@@ -34,7 +34,7 @@ void	s_free(t_dll **head)
 	t_dll	*tmpnext;
 
 	tmp = *head;
-	while (tmp != NULL) 
+	while (tmp != NULL)
 	{
 		tmpnext = tmp->next;
 		s_freenode(tmp);

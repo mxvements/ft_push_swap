@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	char *s = "4 6 2147483647 -3 7 23";
+	char *s = "4 6 2147483647 -3 +7 23";
 
 	t_dll	**stack_a;
 	//t_dll	**stack_b;
