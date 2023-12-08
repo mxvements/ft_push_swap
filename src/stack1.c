@@ -43,7 +43,7 @@ void 	s_push(t_dll **head, t_dll *newnode)
 		return ;
 	oldhead = *head;
 	if (oldhead != NULL)
-		oldhead->prev = newnode; //error with -fsanitize:address
+		oldhead->prev = newnode;
 	newnode->next = oldhead;
 	*head = newnode;
 	return ;

@@ -45,11 +45,11 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
  * @brief 
  * states array:
  * 	 0, 1, 2, 3
- * 	/s, -, D, ^ 
+ * 	/s, -+, D, ^ 
   	{0, 2, 3, 1},	0 INIT 
   	{1, 1, 1, 1},	1 ERR
-  	{1, 1, 3, 1},	2 NEGSIGN		'-'
-  	{4, 1, 3, 1},	3 DIGIT			'D'
+  	{1, 1, 3, 1},	2 NEGSIGN		'-''+'
+  	{4, 1, 3, 1},	3 DIGIT			'Digit'
  * 	{1, 2, 3, 1},	4 SPACE AFTER	'\s'
  * @param i, int, state from which we are moving (row)
  * @param j, int state into which we move to (col)
@@ -74,7 +74,7 @@ size_t	a_changestate(char c, size_t state)
 
 	if (c == ' ')
 		ostate = a_getstate(state, 0);
-	else if (c == '-')
+	else if (ft_issign(c) != 0)
 		ostate = a_getstate(state, 1);
 	else if (ft_isdigit(c) != 0)
 		ostate = a_getstate(state, 2);
