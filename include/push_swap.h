@@ -20,6 +20,7 @@
 # include <string.h>
 # include <ctype.h>
 # include "../libft/libft.h"
+# include "automata.h"
 
 void	s_print(t_dll **head);
 void 	s_push(t_dll **head, t_dll *newnode);

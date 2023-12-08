@@ -1,0 +1,100 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   automata.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 13:34:26 by luciama2          #+#    #+#             */
+/*   Updated: 2023/12/08 13:34:27 by luciama2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
+
+t_dll	**evalnewnode(t_dll **stack_a, int nbr)
+{
+	t_dll 	*node;
+	
+	node = ft_dllnew((void *)ft_intdup(nbr));
+	ft_dlladd_back(stack_a, node);
+	return (stack_a);
+}
+
+t_dll	**evalerror(t_dll **stack)
+{
+	s_free(stack);
+	stack = NULL;
+	printf("Error\n");
+	return (stack);
+}
+
+/**
+ * @brief 
+ * states array:
+ * 	 0, 1, 2, 3
+ * 	/s, -, D, ^ 
+  	{0, 2, 3, 1},	0 INIT 
+  	{1, 1, 1, 1},	1 ERR
+  	{1, 1, 3, 1},	2 NEGSIGN		'-'
+  	{4, 1, 3, 1},	3 DIGIT			'D'
+ * 	{1, 2, 3, 1},	4 SPACE AFTER	'\s'
+ * @param i, int, state from which we are moving (row)
+ * @param j, int state into which we move to (col)
+ * @return size_t, result state
+ */
+size_t	a_getstate(int i, int j)
+{
+	size_t	t_states[][5] =
+	{
+		{0, 2, 3, 1},
+		{1, 1, 1, 1},
+		{1, 1, 3, 1},
+		{4, 1, 3, 1},
+		{1, 2, 3, 1},
+	};
+	return (t_states[i][j]);
+}
+
+size_t	a_changestate(char c, size_t state)
+{
+	size_t	ostate;
+
+	if (c == ' ')
+		ostate = a_getstate(state, 0);
+	else if (c == '-')
+		ostate = a_getstate(state, 1);
+	else if (isdigit(c) != 0) //ft_isdigit()
+		ostate = a_getstate(state, 2);
+	else
+		ostate = a_getstate(state, 3);
+	return (ostate);
+}
+
+t_dll	**a_evaluate(char *s, t_dll **stack_a)
+{
+	size_t	i;
+	size_t	state;
+	size_t	ostate;
+	size_t	startnbr;
+	int		nbr;
+
+	i = 0;
+	state = 0;
+	while (s[i] != '\0')
+	{
+		ostate = a_changestate(s[i], state);
+		if ((state == 0 || state == 4) && (ostate == 2 || ostate == 3))
+			startnbr = i;
+		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
+		{
+			nbr = ft_atoi(s + startnbr);
+			stack_a = evalnewnode(stack_a, nbr);
+		}
+		if (ostate == 1)
+			return (evalerror(stack_a));
+		state = ostate;
+		i++;
+	}
+	return (stack_a);
+}
