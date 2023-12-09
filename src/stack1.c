@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-void	s_print(t_dll **head)
+void	s_print(t_stack **head)
 {
 	size_t	i;
-	t_dll	*tmp;
+	t_stack	*tmp;
 
 	if (head == NULL || *head == NULL)
 	{
@@ -33,9 +33,9 @@ void	s_print(t_dll **head)
 	return ;
 }
 
-void	s_push(t_dll **head, t_dll *newnode)
+void	s_push(t_stack **head, t_stack *newnode)
 {
-	t_dll	*oldhead;
+	t_stack	*oldhead;
 
 	if (!head || !newnode)
 		return ;
@@ -47,10 +47,10 @@ void	s_push(t_dll **head, t_dll *newnode)
 	return ;
 }
 
-void	*s_pop(t_dll **head)
+void	*s_pop(t_stack **head)
 {
 	void	*popnode;
-	t_dll	*tmp;
+	t_stack	*tmp;
 
 	if (*head == NULL)
 		return (NULL);
@@ -61,10 +61,10 @@ void	*s_pop(t_dll **head)
 	return (popnode);
 }
 
-int	s_size(t_dll **head)
+int	s_size(t_stack **head)
 {
 	int		count;
-	t_dll	*tmp;
+	t_stack	*tmp;
 
 	if (!head || !(*head))
 		return (0);
@@ -78,11 +78,11 @@ int	s_size(t_dll **head)
 	return (count);
 }
 
-t_dll	**s_inithead(void)
+t_stack	**s_inithead(void)
 {
-	t_dll	**stack;
+	t_stack	**stack;
 
-	stack = (t_dll **)malloc(sizeof(t_dll *));
+	stack = (t_stack **)malloc(sizeof(t_stack *));
 	if (!stack)
 		return (0);
 	*stack = NULL;

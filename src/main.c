@@ -14,17 +14,20 @@
 
 int main(void)
 {
-	char *s = "4 6 2147483647 -3 +7 23";
+	t_stack	**stack_a;
+	//t_stack	**stack_b;
 
-	t_dll	**stack_a;
-	//t_dll	**stack_b;
-	
-	//stack_b = s_inithead();
+	/*if (argc != 2)
+		return (0);*/
+
+	char *s = "+1  2  3";
 	stack_a = s_inithead();
-
-	stack_a = a_evaluate(s, stack_a);
-	system("leaks -q push_swap");
+	//stack_b = s_inithead();
+	stack_a = a_evaluate(s, stack_a); //parser
+	if (!stack_a  || !(*stack_a) ||s_issorted(stack_a) == 0)
+		printf("stack vacio / ordenado\n");
 	
+	system("leaks -q push_swap");	
 	printf("size: %d\n", s_size(stack_a));
 	s_print(stack_a);
 

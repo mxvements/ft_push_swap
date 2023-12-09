@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_dll	**evalerror(t_dll **stack)
+t_stack	**evalerror(t_stack **stack)
 {
 	s_free(stack);
 	stack = NULL;
@@ -20,9 +20,9 @@ t_dll	**evalerror(t_dll **stack)
 	return (stack);
 }
 
-t_dll	**evalnewnode(t_dll **stack_a, const char *s)
+t_stack	**evalnewnode(t_stack **stack_a, const char *s)
 {
-	t_dll	*node;
+	t_stack	*node;
 	int		nbr;
 	int		flag;
 
@@ -30,13 +30,13 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 	nbr = ft_atoif(s, &flag);
 	if (flag < 0)
 		return (evalerror(stack_a));
-	node = ft_dllnew((void *)(ft_intdup(nbr)));
+	node = ft_stacknew((void *)(ft_intdup(nbr)));
 	if (s_isnodedup(stack_a, node) == 1)
 	{
 		s_freenode(node);
 		return (evalerror(stack_a));
 	}
-	ft_dlladd_back(stack_a, node);
+	ft_stackadd_back(stack_a, node);
 	return (stack_a);
 }
 
@@ -82,7 +82,7 @@ size_t	a_changestate(char c, size_t state)
 	return (ostate);
 }
 
-t_dll	**a_evaluate(char *s, t_dll **stack_a)
+t_stack	**a_evaluate(char *s, t_stack **stack_a)
 {
 	size_t	i;
 	size_t	state;

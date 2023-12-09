@@ -15,13 +15,14 @@
 
 # include "push_swap.h"
 
-t_dll	**s_inithead(void);
-int		s_isnodedup(t_dll **head, t_dll *node);
-void	s_print(t_dll **head);
-void 	s_push(t_dll **head, t_dll *newnode);
-void	*s_pop(t_dll **head);
-int		s_size(t_dll **head);
-void	s_free(t_dll **head);
-void	s_freenode(t_dll *node);
+t_stack	**s_inithead(void);
+int		s_issorted(t_stack **head);
+int		s_isnodedup(t_stack **head, t_stack *node);
+void	s_print(t_stack **head);
+void 	s_push(t_stack **head, t_stack *newnode);
+void	*s_pop(t_stack **head);
+int		s_size(t_stack **head);
+void	s_free(t_stack **head);
+void	s_freenode(t_stack *node);
 
 #endif

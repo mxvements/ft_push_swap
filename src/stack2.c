@@ -12,26 +12,38 @@
 
 #include "../include/push_swap.h"
 
-int	s_isnodedup(t_dll **head, t_dll *node)
+int	s_issorted(t_stack **head)
 {
-	t_dll	*tmp;
-	int		flag;
+	t_stack	*tmp;
 
-	flag = 0;
+	tmp = *head;
+	while (tmp->next != NULL)
+	{
+		if (*(int *)(tmp->content) > *(int *)(tmp->next->content))
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+int	s_isnodedup(t_stack **head, t_stack *node)
+{
+	t_stack	*tmp;
+
 	tmp = *head;
 	while (tmp)
 	{
 		if (*(int *)(tmp->content) == *(int *)(node->content))
-			flag = 1;
+			return (1);
 		tmp = tmp->next;
 	}
-	return (flag);
+	return (0);
 }
 
-void	s_free(t_dll **head)
+void	s_free(t_stack **head)
 {
-	t_dll	*tmp;
-	t_dll	*tmpnext;
+	t_stack	*tmp;
+	t_stack	*tmpnext;
 
 	tmp = *head;
 	while (tmp != NULL)
@@ -43,7 +55,7 @@ void	s_free(t_dll **head)
 	free(head);
 }
 
-void	s_freenode(t_dll *node)
+void	s_freenode(t_stack *node)
 {
 	free(node->content);
 	node->content = NULL;

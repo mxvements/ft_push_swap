@@ -19,9 +19,18 @@
 # include <limits.h>
 # include <string.h>
 # include <ctype.h>
+
 # include "../libft/libft.h"
+
 # include "automata.h"
 # include "stack.h"
 
+typedef struct s_stack
+{
+	void			*content;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+
+}	t_stack;
 
 #endif
