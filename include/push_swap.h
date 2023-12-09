@@ -25,12 +25,11 @@
 # include "automata.h"
 # include "stack.h"
 
-typedef struct s_stack
+typedef struct s_nodecontent
 {
-	void			*content;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-
-}	t_stack;
+	//struct embeded in void *content in t_dll node
+	//wip
+	int		nbr;
+} t_content;
 
 #endif

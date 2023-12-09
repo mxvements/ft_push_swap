@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_stack	**evalerror(t_stack **stack)
+t_dll	**evalerror(t_dll **stack)
 {
 	s_free(stack);
 	stack = NULL;
@@ -20,23 +20,29 @@ t_stack	**evalerror(t_stack **stack)
 	return (stack);
 }
 
-t_stack	**evalnewnode(t_stack **stack_a, const char *s)
+t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 {
-	t_stack	*node;
-	int		nbr;
-	int		flag;
+	t_dll		*node;
+	t_content	*content;
+	int			nbr;
+	int			flag;
 
 	flag = 0;
 	nbr = ft_atoif(s, &flag);
 	if (flag < 0)
 		return (evalerror(stack_a));
-	node = ft_stacknew((void *)(ft_intdup(nbr)));
+	content = (t_content *)malloc(sizeof(t_content));
+	if (!content)
+		return (evalerror(stack_a));
+	//function to initcontent?
+	content->nbr = nbr;
+	node = ft_dllnew((void *)(content));
 	if (s_isnodedup(stack_a, node) == 1)
 	{
 		s_freenode(node);
 		return (evalerror(stack_a));
 	}
-	ft_stackadd_back(stack_a, node);
+	ft_dlladd_back(stack_a, node);
 	return (stack_a);
 }
 
@@ -82,7 +88,7 @@ size_t	a_changestate(char c, size_t state)
 	return (ostate);
 }
 
-t_stack	**a_evaluate(char *s, t_stack **stack_a)
+t_dll	**a_evaluate(char *s, t_dll **stack_a)
 {
 	size_t	i;
 	size_t	state;
@@ -96,7 +102,7 @@ t_stack	**a_evaluate(char *s, t_stack **stack_a)
 		ostate = a_changestate(s[i], state);
 		if ((state == 0 || state == 4) && (ostate == 2 || ostate == 3))
 			startnbr = i;
-		if (state == 3 && (ostate == 4 || s[i + 1] == '\0'))
+		if ((state == 3 && ostate == 4) || (state == 4 && s[i + 1] == '\0'))
 		{
 			stack_a = evalnewnode(stack_a, (s + startnbr));
 			if (!stack_a)
