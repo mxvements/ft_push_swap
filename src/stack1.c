@@ -14,8 +14,9 @@
 
 void	s_print(t_dll **head)
 {
-	size_t	i;
-	t_dll	*tmp;
+	size_t	i	;
+	t_dll		*tmp;
+	t_content	*content;
 
 	if (head == NULL || *head == NULL)
 	{
@@ -26,7 +27,8 @@ void	s_print(t_dll **head)
 	i = 1;
 	while (tmp)
 	{
-		printf("node %zu: %p -> %d\n", i, tmp->content, *(int *)(tmp->content));
+		content = tmp->content;
+		printf("node %zu: %p -> %d\n", i, tmp->content, content->nbr);
 		i++;
 		tmp = tmp->next;
 	}

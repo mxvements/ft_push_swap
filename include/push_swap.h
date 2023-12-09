@@ -32,4 +32,7 @@ typedef struct s_nodecontent
 	int		nbr;
 } t_content;
 
+void	swap(t_dll **stack, char c);
+void	dswap(t_dll **stack_a, t_dll **stack_b);
+
 #endif

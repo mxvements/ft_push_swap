@@ -11,7 +11,9 @@ MY_SOURCES_DIR=src
 MY_SOURCES=		src/main.c \
 				src/stack1.c \
 				src/stack2.c \
-				src/automata.c
+				src/automata.c \
+				src/sort.c \
+				src/swap.c
 
 MY_OBJECTS=$(MY_SOURCES:%.c=%.o)
 
