@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/10 21:24:00 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:32:37 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,16 @@ int main(void)
 
 	/*if (argc != 2)
 		return (0);*/
-	char *s = "1 2 +3 7 5 6";
+	char *s = "1 +3 2 7 6 5";
 
 	stack_a = s_inithead();
 	stack_b = s_inithead();
 	stack_a = a_parse(s, stack_a);
 	
 	//sort	
-	//sort(stack_a, stack_b);	
-	swap(stack_a, 'a');
-	push_b(stack_a, stack_b);
-	push_b(stack_a, stack_b);
-	dswap(stack_a, stack_b);
-	drvrot(stack_a, stack_b);
-	
+	sort(stack_a, stack_b);	
+
+	write(1, "-fin-\n", 6);
 	
 	system("leaks -q push_swap");
 	

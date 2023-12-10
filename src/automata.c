@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:34:26 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/10 18:34:14 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:25:31 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_dll	**evalerror(t_dll **stack)
 {
 	s_free(stack);
 	stack = NULL;
-	printf("Error\n");
+	printf("Error\n"); //perhaps this should be somewhere else
 	return (stack);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:07:43 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/10 21:02:44 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:23:00 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ typedef struct s_nodecontent
 	int		nbr;
 } t_content;
 
-void	swap(t_dll **stack, char c);
+t_dll	*swap(t_dll **stack, char c);
 void	dswap(t_dll **stack_a, t_dll **stack_b);
 void	push_a(t_dll **stack_a, t_dll **stack_b);
 void	push_b(t_dll **stack_a, t_dll **stack_b);
-void	rot(t_dll **stack, char c);
+t_dll	*rot(t_dll **stack, char c);
 void	drot(t_dll **stack_a, t_dll **stack_b);
-void	rvrot(t_dll **stack, char c);
+t_dll	*rvrot(t_dll **stack, char c);
 void	drvrot(t_dll **stack_a, t_dll **stack_b);
+void	sort(t_dll **stack_a, t_dll **stack_b);
+void	push_b_save3(t_dll **stack_a, t_dll **stack_b);
+void	sort3(t_dll **stack, char c);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:22:08 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/10 21:22:28 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:22:40 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	rot(t_dll **stack, char c)
+t_dll	*rot(t_dll **stack, char c)
 {
 	t_content	*tmp;
 	t_dll		*tmpnode;
@@ -30,7 +30,8 @@ void	rot(t_dll **stack, char c)
 	else if (c == 'c')
 		ft_putstr_fd("", 1);
 	else
-		ft_putstr_fd("ERROR: wrong stack", 1);
+		ft_putstr_fd("ERROR: wrong stack\n", 1);
+	return (*stack);
 }
 
 void	drot(t_dll **stack_a, t_dll **stack_b)
@@ -40,7 +41,7 @@ void	drot(t_dll **stack_a, t_dll **stack_b)
 	ft_putstr_fd("rr\n", 1);
 }
 
-void	rvrot(t_dll **stack, char c)
+t_dll	*rvrot(t_dll **stack, char c)
 {
 	t_dll		*last;
 	t_dll		*newlast;
@@ -50,9 +51,7 @@ void	rvrot(t_dll **stack, char c)
 	//reverse rotate
 	last = ft_dlllast(*stack);
 	newlast = last->prev;
-	content = (t_content *)last->content;
-	free(last);
-	last = NULL;
+	content = (t_content *)s_pop(&last);
 	newlast->next = NULL;
 	s_push(stack, ft_dllnew((void *)content));
 	//print
@@ -63,7 +62,8 @@ void	rvrot(t_dll **stack, char c)
 	else if (c == 'c')
 		ft_putstr_fd("", 1);
 	else
-		ft_putstr_fd("ERROR: wrong stack", 1);
+		ft_putstr_fd("ERROR: wrong stack\n", 1);
+	return (*stack);
 }
 
 void	drvrot(t_dll **stack_a, t_dll **stack_b)

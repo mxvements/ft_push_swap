@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:54:43 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/10 16:32:50 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:34:58 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	*s_pop(t_dll **head)
 
 	if (*head == NULL)
 		return (NULL);
-	popnode = (*head)->content;
 	tmp = *head;
+	popnode = (*head)->content;
 	*head = (*head)->next;
 	free(tmp);
 	return (popnode);
