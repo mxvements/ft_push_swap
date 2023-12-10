@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:56:52 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/09 20:56:54 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:42:36 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(t_dll **stack, char c)
 	if (!stack || !(*stack))
 		return ;
 	//swap
-	tmpnode  = (*stack)->content;
+	tmpnode = (*stack)->content;
 	tmpnext = (*stack)->next->content;
 	(*stack)->content = tmpnext;
 	(*stack)->next->content = tmpnode;

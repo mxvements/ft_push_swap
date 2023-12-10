@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   automata.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:34:03 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/08 13:34:04 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:34:21 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_dll	**evalerror(t_dll **stack);
 t_dll	**evalnewnode(t_dll **stack_a, const char *s);
 size_t	a_getstate(int i, int j);
 size_t	a_changestate(char c, size_t state);
-t_dll	**a_evaluate(char *s, t_dll **stack_a);
+t_dll	**a_parse(char *s, t_dll **stack_a);
 
 #endif
