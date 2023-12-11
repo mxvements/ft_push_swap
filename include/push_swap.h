@@ -30,6 +30,9 @@ typedef struct s_nodecontent
 	//struct embeded in void *content in t_dll node
 	//wip
 	int		nbr;
+	size_t	indx;
+	int		cost;
+
 } t_content;
 
 void	swap(t_dll **stack, char c);

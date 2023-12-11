@@ -17,15 +17,12 @@ void	swap(t_dll **stack, char c)
 	t_content	*tmpnode;
 	t_content	*tmpnext;
 
-	//protections
 	if (!stack || !(*stack))
 		return ;
-	//swap
 	tmpnode = (*stack)->content;
 	tmpnext = (*stack)->next->content;
 	(*stack)->content = tmpnext;
 	(*stack)->next->content = tmpnode;
-	//update content, without touching nbr (for the future)
 	if (c == 'a')
 		ft_putstr_fd("sa\n", 1);
 	else if (c == 'b')
@@ -34,7 +31,6 @@ void	swap(t_dll **stack, char c)
 		ft_putstr_fd("", 1);
 	else
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
-	//check for other chars.. double swap?
 	return ;
 }
 

@@ -34,7 +34,6 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 	content = (t_content *)malloc(sizeof(t_content));
 	if (!content)
 		return (evalerror(stack_a));
-	//function to initcontent?
 	content->nbr = nbr;
 	node = ft_dllnew((void *)(content));
 	if (s_isnodedup(stack_a, node) == 1)

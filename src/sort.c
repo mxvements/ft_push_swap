@@ -83,15 +83,17 @@ void	sort3_desc(t_dll **stack)
 void	sort3_c(t_dll **stack, char c)
 {
 	if (c == 'a')
-		gnomesort_asc(stack);
+		sort3_asc(stack);
 	else if (c == 'b')
-		gnomesort_desc(stack);
+		sort3_desc(stack);
 	else
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
 }
 
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
+	s_updateindx(stack_a);
+	s_updateindx(stack_b);
 	if (s_size(stack_a) < 4)
 		sort3_c(stack_a, 'a');
 	if (s_size(stack_a) < 6)
@@ -99,11 +101,13 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 		push_b_save3(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
 		sort3_c(stack_b, 'b');
-		while (*stack_b)
+		/*while (*stack_b)
 		{
 			push_a(stack_a, stack_b);
 			sort3_c(stack_a, 'a');
-		}
+		}*/
 	}
+	s_updateindx(stack_a);
+	s_updateindx(stack_b);
 }
 

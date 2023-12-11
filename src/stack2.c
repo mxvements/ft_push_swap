@@ -12,6 +12,23 @@
 
 #include "../include/push_swap.h"
 
+void	s_updateindx(t_dll **head)
+{
+	size_t		i;
+	t_dll		*tmp;
+	t_content	*tmpcontent;
+
+	tmp = *head;
+	i = 0;
+	while (tmp)
+	{
+		tmpcontent = tmp->content;
+		tmpcontent->indx = i;
+		i++;
+		tmp = tmp->next;
+	}
+}
+
 int	s_issorted(t_dll **head)
 {
 	t_dll	*tmp;
