@@ -34,14 +34,15 @@ void	gnomesort_asc(t_dll **stack)
 	t_content	*lstcontent;
 
 	tmp = *stack;
+	tmpcontent = tmp->content;
+	lstcontent = ft_dlllast(*stack)->content;
+	if (tmpcontent->nbr > lstcontent->nbr)
+		rot(stack, 'a');
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
 		nxtcontent = tmp->next->content;
-		lstcontent = ft_dlllast(*stack)->content;
-		if (tmpcontent->nbr > lstcontent->nbr)
-			rot(stack, 'a');
-		else if (tmpcontent->nbr > nxtcontent->nbr)
+		if (tmpcontent->nbr > nxtcontent->nbr)
 			swap(&tmp, 'a');
 		else
 		{
@@ -60,14 +61,15 @@ void	gnomesort_desc(t_dll **stack)
 	t_content	*lstcontent;
 
 	tmp = *stack;
+	lstcontent = ft_dlllast(*stack)->content;
+	tmpcontent = tmp->content;
+	if (tmpcontent->nbr < lstcontent->nbr)
+		rot(stack, 'a');
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
 		nxtcontent = tmp->next->content;
-		lstcontent = ft_dlllast(*stack)->content;
-		if (tmpcontent->nbr < lstcontent->nbr)
-			rot(stack, 'a');
-		else if (tmpcontent->nbr < nxtcontent->nbr)
+		if (tmpcontent->nbr < nxtcontent->nbr)
 			swap(&tmp, 'a');
 		else
 		{
