@@ -42,8 +42,8 @@ void	rvrot(t_dll **stack, char c);
 void	drvrot(t_dll **stack_a, t_dll **stack_b);
 void	sort(t_dll **stack_a, t_dll **stack_b);
 void	push_b_save3(t_dll **stack_a, t_dll **stack_b);
-void	gnomesort_c(t_dll **stack, char c);
-void	gnomesort_desc(t_dll **stack);
-void	gnomesort_asc(t_dll **stack);
+void	sort3_c(t_dll **stack, char c);
+void	sort3_desc(t_dll **stack);
+void	sort3_asc(t_dll **stack);
 
 #endif

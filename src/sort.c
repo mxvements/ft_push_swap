@@ -26,7 +26,7 @@ void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 	}
 }
 
-void	gnomesort_asc(t_dll **stack)
+void	sort3_asc(t_dll **stack)
 {
 	t_dll		*tmp;
 	t_content	*tmpcontent;
@@ -53,7 +53,7 @@ void	gnomesort_asc(t_dll **stack)
 	}
 }
 
-void	gnomesort_desc(t_dll **stack)
+void	sort3_desc(t_dll **stack)
 {
 	t_dll		*tmp;
 	t_content	*tmpcontent;
@@ -80,7 +80,7 @@ void	gnomesort_desc(t_dll **stack)
 	}
 }
 
-void	gnomesort_c(t_dll **stack, char c)
+void	sort3_c(t_dll **stack, char c)
 {
 	if (c == 'a')
 		gnomesort_asc(stack);
@@ -93,16 +93,16 @@ void	gnomesort_c(t_dll **stack, char c)
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
 	if (s_size(stack_a) < 4)
-		gnomesort_c(stack_a, 'a');
+		sort3_c(stack_a, 'a');
 	if (s_size(stack_a) < 6)
 	{
 		push_b_save3(stack_a, stack_b);
-		gnomesort_c(stack_a, 'a');
-		gnomesort_c(stack_b, 'b');
+		sort3_c(stack_a, 'a');
+		sort3_c(stack_b, 'b');
 		while (*stack_b)
 		{
 			push_a(stack_a, stack_b);
-			gnomesort_c(stack_a, 'a');
+			sort3_c(stack_a, 'a');
 		}
 	}
 }
