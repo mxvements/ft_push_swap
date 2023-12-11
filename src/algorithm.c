@@ -32,6 +32,11 @@ void	getcost(t_dll	**stack_a)
 		//(1) cost to be at the top of a
 		if (nodecont->indx == 0)
 			cost_a = 0;
+		//esto de aqui vale para las dos listas, cost_a se puede reverse engineer
+		//los movimentos
+		//si tenemos el coste en el otro stack (hayamos el nodo sobre el que
+		//deberia ir.. ) tb se puede calcular -> podemos ver qué movimientos dobles
+		//podemos hacer
 		if (nodecont->indx < (s_len / 2))
 		{
 			ra = (nodecont->indx - 1); //while indx > 1, indx--
