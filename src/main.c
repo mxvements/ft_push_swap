@@ -19,7 +19,7 @@ int main(void)
 
 	/*if (argc != 2)
 		return (0);*/
-	char *s = "1 +3 2 7 6 5";
+	char *s = "1 +3 7 2 4";
 
 	stack_a = s_inithead();
 	stack_b = s_inithead();

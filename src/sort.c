@@ -25,43 +25,82 @@ void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 		push_b(stack_a, stack_b);
 	}
 }
-
-void	sort3(t_dll **stack, char c)
+void	gnomesort_asc(t_dll **stack)
 {
 	t_dll		*tmp;
 	t_content	*tmpcontent;
 	t_content	*nxtcontent;
 	t_content	*lstcontent;
-	
+
 	tmp = *stack;
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
 		nxtcontent = tmp->next->content;
 		lstcontent = ft_dlllast(*stack)->content;
-		if ((c == 'a') && (tmpcontent->nbr > lstcontent->nbr))
-			tmp = rot(stack, 'a');
-		else if ((c == 'a') && (tmpcontent->nbr > nxtcontent->nbr))
-			tmp = swap(&tmp, 'a');
-		else if ((c == 'b') && (tmpcontent->nbr < lstcontent->nbr))
-			tmp = rot(stack, 'b');
-		else if ((c == 'b') && (tmpcontent->nbr < nxtcontent->nbr))
-			tmp = swap(&tmp, 'b');
+		if (tmpcontent->nbr > lstcontent->nbr)
+			rot(stack, 'a');
+		else if (tmpcontent->nbr > nxtcontent->nbr)
+			swap(&tmp, 'a');
 		else
+		{
 			tmp = tmp->next;
-	}	
+			continue ;
+		}
+		tmp = *stack;
+	}
+}
+
+void	gnomesort_desc(t_dll **stack)
+{
+	t_dll		*tmp;
+	t_content	*tmpcontent;
+	t_content	*nxtcontent;
+	t_content	*lstcontent;
+
+	tmp = *stack;
+	while (tmp->next)
+	{
+		tmpcontent = tmp->content;
+		nxtcontent = tmp->next->content;
+		lstcontent = ft_dlllast(*stack)->content;
+		if (tmpcontent->nbr < lstcontent->nbr)
+			rot(stack, 'a');
+		else if (tmpcontent->nbr < nxtcontent->nbr)
+			swap(&tmp, 'a');
+		else
+		{
+			tmp = tmp->next;
+			continue ;
+		}
+		tmp = *stack;
+	}
+}
+
+void	gnomesort_c(t_dll **stack, char c)
+{
+	if (c == 'a')
+		gnomesort_asc(stack);
+	else if (c == 'b')
+		gnomesort_desc(stack);
+	else
+		ft_putstr_fd("ERROR: wrong stack\n", 1);
 }
 
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
-	push_b_save3(stack_a, stack_b);
-	sort3(stack_a, 'a');
-	if (s_size(stack_b) == 3)
+	if (s_size(stack_a) < 4)
+		gnomesort_c(stack_a, 'a');
+	if (s_size(stack_a) < 6)
 	{
-		sort3(stack_b, 'b');
-		push_a(stack_a, stack_b);
-		push_a(stack_a, stack_b);
-		push_a(stack_a, stack_b);
+		push_b_save3(stack_a, stack_b);
+		gnomesort_c(stack_a, 'a');
+		gnomesort_c(stack_b, 'b');
+		while (*stack_b)
+		{
+			push_a(stack_a, stack_b);
+			gnomesort_c(stack_a, 'a');
+		}
 	}
 }
 
