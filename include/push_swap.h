@@ -32,16 +32,18 @@ typedef struct s_nodecontent
 	int		nbr;
 } t_content;
 
-t_dll	*swap(t_dll **stack, char c);
+void	swap(t_dll **stack, char c);
 void	dswap(t_dll **stack_a, t_dll **stack_b);
 void	push_a(t_dll **stack_a, t_dll **stack_b);
 void	push_b(t_dll **stack_a, t_dll **stack_b);
-t_dll	*rot(t_dll **stack, char c);
+void	rot(t_dll **stack, char c);
 void	drot(t_dll **stack_a, t_dll **stack_b);
-t_dll	*rvrot(t_dll **stack, char c);
+void	rvrot(t_dll **stack, char c);
 void	drvrot(t_dll **stack_a, t_dll **stack_b);
 void	sort(t_dll **stack_a, t_dll **stack_b);
 void	push_b_save3(t_dll **stack_a, t_dll **stack_b);
 void	gnomesort_c(t_dll **stack, char c);
+void	gnomesort_desc(t_dll **stack);
+void	gnomesort_asc(t_dll **stack);
 
 #endif

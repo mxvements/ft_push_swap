@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_dll	*rot(t_dll **stack, char c)
+void	rot(t_dll **stack, char c)
 {
 	t_content	*tmp;
 	t_dll		*tmpnode;
@@ -31,7 +31,7 @@ t_dll	*rot(t_dll **stack, char c)
 		ft_putstr_fd("", 1);
 	else
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
-	return (*stack);
+	return ;
 }
 
 void	drot(t_dll **stack_a, t_dll **stack_b)
@@ -41,7 +41,7 @@ void	drot(t_dll **stack_a, t_dll **stack_b)
 	ft_putstr_fd("rr\n", 1);
 }
 
-t_dll	*rvrot(t_dll **stack, char c)
+void	rvrot(t_dll **stack, char c)
 {
 	t_dll		*last;
 	t_dll		*newlast;
@@ -63,7 +63,7 @@ t_dll	*rvrot(t_dll **stack, char c)
 		ft_putstr_fd("", 1);
 	else
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
-	return (*stack);
+	return ;
 }
 
 void	drvrot(t_dll **stack_a, t_dll **stack_b)

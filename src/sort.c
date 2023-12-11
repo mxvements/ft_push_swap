@@ -25,6 +25,7 @@ void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 		push_b(stack_a, stack_b);
 	}
 }
+
 void	gnomesort_asc(t_dll **stack)
 {
 	t_dll		*tmp;

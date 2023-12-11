@@ -12,14 +12,14 @@
 
 #include "../include/push_swap.h"
 
-t_dll	*swap(t_dll **stack, char c)
+void	swap(t_dll **stack, char c)
 {
 	t_content	*tmpnode;
 	t_content	*tmpnext;
 
 	//protections
 	if (!stack || !(*stack))
-		return (NULL);
+		return ;
 	//swap
 	tmpnode = (*stack)->content;
 	tmpnext = (*stack)->next->content;
@@ -35,7 +35,7 @@ t_dll	*swap(t_dll **stack, char c)
 	else
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
 	//check for other chars.. double swap?
-	return (*stack);
+	return ;
 }
 
 void	dswap(t_dll **stack_a, t_dll **stack_b)
