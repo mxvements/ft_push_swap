@@ -26,7 +26,7 @@ int	getnodecost(t_dll *node, int slen)
 	i = ndcontent->indx;
 	if (i == 0)
 		cost = 0;
-	if (i < (slen / 2))
+	if (i <= (slen / 2))
 	{
 		ro = (i - 1);
 		sw = 1;
@@ -43,18 +43,17 @@ int	gettotalcost(t_dll *node)
 	int			sw = 0;
 	int			ro = 0;
 	int			rro = 0;
+	//cost_tot = cost + cost_ot (menos los movimiento dobles)
 
 	content = node->content;
 	//reverse engineer from the total cost, the cost of each node
 	//this is to take into account the double moves
-	if (content->indx < (slen / 2))
-	{
-		ro = (i - 1);
-		sw = 1;
-	}
+	if (content->indx <= (content->slen / 2) && content->indx_out <= (content->slen_out / 2))
+		//cost == the hihger + push
+	else if (content->indx < (content->slen / 2) && content->indx_out < (content->slen_out / 2))
+		//cost = the higher + push
 	else
-		rro = slen - i;
-	cost = ro + sw + rro;
+		//the sum of boths, they need different moves, +1 (push)
 
 }
 
@@ -71,13 +70,15 @@ void	getcost_a(t_dll **stack_a, t_dll **stack_b)
 	while (node)
 	{
 		ndcontent = node->content;
-		ndcontent->cost_a = getnodecost(node, slen_a);
+		ndcontent->slen = slen_a;
+		ndcontent->cost = getnodecost(node, slen_a);
 		//(2) it order to push it to b, we need to push it after the larger num
 		tmp = *stack_b;
 		//find the node in stack_b that should be after the current node i st_a
 		while (tmp && ((t_content *)tmp->content)->nbr > ndcontent->nbr)
 			tmp = tmp->next;
-		ndcontent->indx_n = ((t_content *)tmp->content)->indx;
-		ndcontent->cost_b = getnodecost(tmp, slen_b);
+		ndcontent->cost_out = slen_b;
+		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
+		ndcontent->cost_out = getnodecost(tmp, slen_b);
 	}
 }

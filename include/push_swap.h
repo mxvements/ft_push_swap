@@ -28,10 +28,15 @@
 typedef struct s_nodecontent
 {
 	int		nbr;
+	//its stack
 	size_t	indx;
-	int		cost_a;
-	size_t	indx_n;
-	int		cost_b;
+	int		cost;
+	int		slen;
+	//the stack to move to
+	size_t	indx_out;
+	int		cost_out;
+	int		slen_out;
+	//total cost
 	int		cost_tot;
 
 } t_content;
