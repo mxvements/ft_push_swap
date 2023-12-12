@@ -37,8 +37,26 @@ int	getnodecost(t_dll *node, int slen)
 	return (cost);
 }
 
-int	gettotalcost()
-{}
+int	gettotalcost(t_dll *node)
+{
+	t_content	*content;
+	int			sw = 0;
+	int			ro = 0;
+	int			rro = 0;
+
+	content = node->content;
+	//reverse engineer from the total cost, the cost of each node
+	//this is to take into account the double moves
+	if (content->indx < (slen / 2))
+	{
+		ro = (i - 1);
+		sw = 1;
+	}
+	else
+		rro = slen - i;
+	cost = ro + sw + rro;
+
+}
 
 //https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 void	getcost_a(t_dll **stack_a, t_dll **stack_b)
