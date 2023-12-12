@@ -12,41 +12,54 @@
 
 #include "../include/push_swap.h"
 
-//https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-void	getcost(t_dll	**stack_a)
+int	getnodecost(t_dll *node, int slen)
 {
+	t_content	*ndcontent;
+	size_t		i;
+	int			cost;
+	//by movements
+	int			sw = 0;
+	int			ro = 0;
+	int			rro = 0;
+
+	ndcontent = node->content;
+	i = ndcontent->indx;
+	if (i == 0)
+		cost = 0;
+	if (i < (slen / 2))
+	{
+		ro = (i - 1);
+		sw = 1;
+	}
+	else
+		rro = slen - i;
+	cost = ro + sw + rro;
+	return (cost);
+}
+
+int	gettotalcost()
+{}
+
+//https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+void	getcost_a(t_dll **stack_a, t_dll **stack_b)
+{
+	t_dll		*tmp;
 	t_dll		*node;
-	t_content	*nodecont;
-	const int	s_len = s_size(stack_a);
-	//(1) lets count the cost for the number to be at the top of a
-	int			sa = 0;
-	int			ra = 0;
-	int			rra = 0;
-	int			cost_a; //sa + ra + rra
+	t_content	*ndcontent;
+	const int	slen_a = s_size(stack_a);
+	const int	slen_b = s_size(stack_b);
 
 	node = (*stack_a);
 	while (node)
 	{
-		nodecont = node->content;
-		//we need to update content->cost for each node in this stack..
-		//(1) cost to be at the top of a
-		if (nodecont->indx == 0)
-			cost_a = 0;
-		//esto de aqui vale para las dos listas, cost_a se puede reverse engineer
-		//los movimentos
-		//si tenemos el coste en el otro stack (hayamos el nodo sobre el que
-		//deberia ir.. ) tb se puede calcular -> podemos ver qué movimientos dobles
-		//podemos hacer
-		if (nodecont->indx < (s_len / 2))
-		{
-			ra = (nodecont->indx - 1); //while indx > 1, indx--
-			sa = 1;
-		}
-		else
-		{
-			rra = s_len - nodecont->indx;
-		}
-		cost_a = ra + sa + rra;
+		ndcontent = node->content;
+		ndcontent->cost_a = getnodecost(node, slen_a);
 		//(2) it order to push it to b, we need to push it after the larger num
+		tmp = *stack_b;
+		//find the node in stack_b that should be after the current node i st_a
+		while (tmp && ((t_content *)tmp->content)->nbr > ndcontent->nbr)
+			tmp = tmp->next;
+		ndcontent->indx_n = ((t_content *)tmp->content)->indx;
+		ndcontent->cost_b = getnodecost(tmp, slen_b);
 	}
 }

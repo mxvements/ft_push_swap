@@ -27,11 +27,12 @@
 
 typedef struct s_nodecontent
 {
-	//struct embeded in void *content in t_dll node
-	//wip
 	int		nbr;
 	size_t	indx;
-	int		cost;
+	int		cost_a;
+	size_t	indx_n;
+	int		cost_b;
+	int		cost_tot;
 
 } t_content;
 
