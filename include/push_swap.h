@@ -54,5 +54,9 @@ void	push_b_save3(t_dll **stack_a, t_dll **stack_b);
 void	sort3_c(t_dll **stack, char c);
 void	sort3_desc(t_dll **stack);
 void	sort3_asc(t_dll **stack);
+//getcost
+void	getcost_a(t_dll **stack_a, t_dll **stack_b);
+int		gettotalcost(t_dll *node);
+int		getnodecost(t_dll *node, int slen);
 
 #endif

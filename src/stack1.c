@@ -26,7 +26,7 @@ void	s_print(t_dll **head)
 	while (tmp)
 	{
 		cont = tmp->content;
-		printf("node %zu: %p -> %d\n", cont->indx, tmp->content, cont->nbr);
+		printf("node %zu: %p -> nbr:%d, cost:%d (self:%d out:%d)\n", cont->indx, tmp->content, cont->nbr, cont->cost_tot, cont->cost, cont->cost_out);
 		tmp = tmp->next;
 	}
 	return ;
