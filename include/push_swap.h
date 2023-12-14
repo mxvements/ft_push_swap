@@ -58,5 +58,6 @@ void	sort3_asc(t_dll **stack);
 void	getcost_a(t_dll **stack_a, t_dll **stack_b);
 int		gettotalcost(t_dll *node);
 int		getnodecost(t_dll *node, int slen);
+void	move_a(t_dll **stack_a, t_dll **stack_b);
 
 #endif

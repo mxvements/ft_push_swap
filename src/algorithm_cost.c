@@ -12,6 +12,7 @@
 
 #include "../include/push_swap.h"
 
+
 int	getnodecost(t_dll *node, int slen)
 {
 	t_content	*ndcontent;
@@ -27,10 +28,7 @@ int	getnodecost(t_dll *node, int slen)
 	if (i == 0)
 		cost = 0;
 	else if (i <= (slen / 2))
-	{
-		ro = (i - 1);
-		sw = 1;
-	}
+		ro = i; //we only use swap to sort at the start, this is bette to maintain stack_b sorted
 	else
 		rro = slen - i;
 	cost = ro + sw + rro;
@@ -54,10 +52,48 @@ int	gettotalcost(t_dll *node)
 		cost_max = content->cost_out;
 	if ((indx <= (content->slen / 2) && indx_out <= (content->slen_out / 2))
 		|| (indx > (content->slen / 2) && indx_out > (content->slen_out / 2)))
-		cost_tot = cost_max + 1; //cost = the higher + push
+		cost_tot = cost_max; //cost = the higher + push
 	else
-		cost_tot = content->cost + content->cost_out + 1;
+		cost_tot = content->cost + content->cost_out; //+push
 	return (cost_tot);
+}
+
+t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
+{
+	t_dll		*tmp;
+	t_content	*tmpcont;
+
+	tmp = *stack_b;
+	//case1
+	//nbr lower than the top, we find the first the lower to it to insert on top
+	while (tmp->next && ((t_content *)tmp->content)->nbr > nbr)
+	{
+		tmp = tmp->next;
+		if (((t_content *)tmp->content)->nbr < nbr)
+			return (tmp);
+	}
+	//case2
+	//nbr higher than the top, we start from the bottom
+	//nbr lower than the last, we find the first higher to it to insert it after (return the next)
+	tmp = ft_dlllast(*stack_b);
+	if (nbr < ((t_content *)tmp->content)->nbr)
+		return (*stack_b);
+	while (tmp->prev && ((t_content *)tmp->content)->nbr < nbr)
+	{
+		tmp = tmp->prev;
+		if (((t_content *)tmp->content)->nbr > nbr)
+			return (tmp->next); //we need to return the first that is lower
+	}
+	//case left: the number is a new max.
+	tmp = *stack_b;
+	while (tmp->next)
+	{
+		tmpcont = tmp->content;
+		if (tmpcont->nbr < ((t_content *)tmp->next->content)->nbr)
+			return (tmp->next);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }
 
 //https://medium.com/@ayogun/push-swap-c1f5d2d41e97
@@ -72,12 +108,13 @@ void	getcost_a(t_dll **stack_a, t_dll **stack_b)
 	node = (*stack_a);
 	while (node)
 	{
+		//update node info
 		ndcontent = node->content;
 		ndcontent->slen = slen_a;
 		ndcontent->cost = getnodecost(node, slen_a);
-		tmp = *stack_b;
-		while (tmp && ((t_content *)tmp->content)->nbr > ndcontent->nbr)
-			tmp = tmp->next;
+		//get the node in the next stack -> this should be a funct
+		tmp = getnextstacknode(stack_b, ndcontent->nbr);
+		//update 'out'node info //must update its own info as well
 		ndcontent->cost_out = slen_b;
 		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
 		ndcontent->cost_out = getnodecost(tmp, slen_b);

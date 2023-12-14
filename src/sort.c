@@ -38,6 +38,7 @@ void	sort3_asc(t_dll **stack)
 	lstcontent = ft_dlllast(*stack)->content;
 	if (tmpcontent->nbr > lstcontent->nbr)
 		rot(stack, 'a');
+	tmp = *stack;
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
@@ -64,13 +65,14 @@ void	sort3_desc(t_dll **stack)
 	lstcontent = ft_dlllast(*stack)->content;
 	tmpcontent = tmp->content;
 	if (tmpcontent->nbr < lstcontent->nbr)
-		rot(stack, 'a');
+		rot(stack, 'b');
+	tmp = *stack;
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
 		nxtcontent = tmp->next->content;
 		if (tmpcontent->nbr < nxtcontent->nbr)
-			swap(&tmp, 'a');
+			swap(&tmp, 'b');
 		else
 		{
 			tmp = tmp->next;
@@ -110,18 +112,22 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 			sort3_c(stack_a, 'a');
 		}*/
 	}
-	if (s_size(stack_a) <= 6)
+	if (s_size(stack_a) >= 6)
 	{
 		push_b(stack_a, stack_b);
 		push_b(stack_a, stack_b);
+		push_b(stack_a, stack_b);
 		sort3_c(stack_b, 'b');
-
 		s_updateindx(stack_a);
 		s_updateindx(stack_b);
-		
-		getcost_a(stack_a, stack_b);
+		while (s_size(stack_a) > 3)
+		{
+			getcost_a(stack_a, stack_b);
+			move_a(stack_a, stack_b);
+			s_updateindx(stack_a);
+			s_updateindx(stack_b);
+		}
+		//sort3_c(stack_b, 'b');
 	}
-	s_updateindx(stack_a);
-	s_updateindx(stack_b);
 }
 

@@ -16,7 +16,8 @@ MY_SOURCES=		src/main.c \
 				src/swap.c \
 				src/push.c \
 				src/rotate.c \
-				src/algorithm_cost.c
+				src/algorithm_cost.c \
+				src/algorithm.c
 
 MY_OBJECTS=$(MY_SOURCES:%.c=%.o)
 
