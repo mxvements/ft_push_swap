@@ -98,7 +98,7 @@ void	sort3_c(t_dll **stack, char c)
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
 	s_updateindx(stack_a);
-	s_updateindx(stack_b);
+	//s_updateindx(stack_b);
 	if (s_size(stack_a) < 4)
 		sort3_c(stack_a, 'a');
 	if (s_size(stack_a) < 6)
@@ -114,20 +114,24 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 	}
 	if (s_size(stack_a) >= 6)
 	{
-		push_b(stack_a, stack_b);
-		push_b(stack_a, stack_b);
-		push_b(stack_a, stack_b);
-		sort3_c(stack_b, 'b');
+		while (s_size(stack_a) > 4)
+			push_b(stack_a, stack_b);
+		sort3_c(stack_a, 'a');
 		s_updateindx(stack_a);
 		s_updateindx(stack_b);
-		while (s_size(stack_a) > 3)
+
+		while (s_size(stack_b) >= 1)
 		{
-			getcost_a(stack_a, stack_b);
-			move_a(stack_a, stack_b);
+			getcost_a(stack_b, stack_a); //refactor
+			move_a(stack_b, stack_a); //refactor
 			s_updateindx(stack_a);
 			s_updateindx(stack_b);
 		}
-		sort3_c(stack_a, 'a');
+
+		
+
+
+		//sort3_c(stack_b, 'b');
 
 		//push to a (without optimising)
 		/*while (s_size(stack_b) > 0)

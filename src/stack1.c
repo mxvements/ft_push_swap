@@ -42,7 +42,7 @@ void	s_push(t_dll **head, t_dll *newnode)
 	if (oldhead != NULL)
 		oldhead->prev = newnode;
 	newnode->next = oldhead;
-	*head = newnode;
+	(*head) = newnode;
 	return ;
 }
 
@@ -57,6 +57,7 @@ void	*s_pop(t_dll **head)
 	popnode = (*head)->content;
 	*head = (*head)->next;
 	free(tmp);
+	tmp = NULL;
 	return (popnode);
 }
 

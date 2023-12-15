@@ -40,6 +40,6 @@ void	push_b(t_dll **stack_a, t_dll **stack_b)
 	node = ft_dllnew((void *)(tmp));
 	s_push(stack_b, node);
 	//print
-	ft_putstr_fd("pa\n", 1);
+	ft_putstr_fd("pb\n", 1);
 	//check final state?
 }

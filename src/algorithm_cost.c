@@ -67,10 +67,10 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	tmpcont = tmp->content;
 	//case1
 	//nbr lower than the top, we find the first the lower to it to insert on top
-	while (tmp->next && ((t_content *)tmp->content)->nbr > nbr)
+	while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
 	{
 		tmp = tmp->next;
-		if (((t_content *)tmp->content)->nbr < nbr)
+		if (((t_content *)tmp->content)->nbr > nbr)
 			return (tmp);
 	}
 	//case2
@@ -78,12 +78,13 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	//nbr lower than the last, we find the first higher to it to insert it after (return the next)
 	tmp = ft_dlllast(*stack_b);
 	tmpcont = tmp->content;
-	if (nbr < ((t_content *)tmp->content)->nbr)
+	if (nbr > ((t_content *)tmp->content)->nbr)
 		return (*stack_b);
-	while (tmp->prev && ((t_content *)tmp->content)->nbr < nbr)
+	while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr) //STUCK HERE
 	{
 		tmp = tmp->prev;
-		if (((t_content *)tmp->content)->nbr > nbr)
+		tmpcont = tmp->content;
+		if (tmpcont && tmpcont->nbr < nbr)
 			return (tmp->next); //we need to return the first that is lower
 	}
 	//case left: the number is a new max.
@@ -92,7 +93,7 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	while (tmp->next)
 	{
 		tmpcont = tmp->content;
-		if (tmpcont->nbr < ((t_content *)tmp->next->content)->nbr)
+		if (tmpcont->nbr > ((t_content *)tmp->next->content)->nbr) 
 			return (tmp->next);
 		tmp = tmp->next;
 	}
