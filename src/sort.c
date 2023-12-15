@@ -127,7 +127,14 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 			s_updateindx(stack_a);
 			s_updateindx(stack_b);
 		}
-		//sort3_c(stack_b, 'b');
+		sort3_c(stack_a, 'a');
+
+		//push to a (without optimising)
+		/*while (s_size(stack_b) > 0)
+			push_a(stack_a, stack_b);
+		s_updateindx(stack_a);
+		s_updateindx(stack_b);*/
+		//sort3_c(stack_a, 'a'); //this wont make it
 	}
 }
 

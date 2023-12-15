@@ -64,6 +64,7 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	t_content	*tmpcont;
 
 	tmp = *stack_b;
+	tmpcont = tmp->content;
 	//case1
 	//nbr lower than the top, we find the first the lower to it to insert on top
 	while (tmp->next && ((t_content *)tmp->content)->nbr > nbr)
@@ -76,6 +77,7 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	//nbr higher than the top, we start from the bottom
 	//nbr lower than the last, we find the first higher to it to insert it after (return the next)
 	tmp = ft_dlllast(*stack_b);
+	tmpcont = tmp->content;
 	if (nbr < ((t_content *)tmp->content)->nbr)
 		return (*stack_b);
 	while (tmp->prev && ((t_content *)tmp->content)->nbr < nbr)
@@ -86,6 +88,7 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	}
 	//case left: the number is a new max.
 	tmp = *stack_b;
+	tmpcont = tmp->content;
 	while (tmp->next)
 	{
 		tmpcont = tmp->content;
@@ -93,7 +96,7 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 			return (tmp->next);
 		tmp = tmp->next;
 	}
-	return (NULL);
+	return (*stack_b);
 }
 
 //https://medium.com/@ayogun/push-swap-c1f5d2d41e97
@@ -115,7 +118,7 @@ void	getcost_a(t_dll **stack_a, t_dll **stack_b)
 		//get the node in the next stack -> this should be a funct
 		tmp = getnextstacknode(stack_b, ndcontent->nbr);
 		//update 'out'node info //must update its own info as well
-		ndcontent->cost_out = slen_b;
+		ndcontent->slen_out = slen_b;
 		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
 		ndcontent->cost_out = getnodecost(tmp, slen_b);
 		ndcontent->cost_tot = gettotalcost(node);

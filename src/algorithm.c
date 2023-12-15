@@ -138,12 +138,14 @@ void	move_a(t_dll **stack_a, t_dll **stack_b)
 			node = node->next;
 		if ((int)(ndcontent->indx) == cheapest)
 		{
+			/*
 			//check stack_b
 			printf("size b: %d\n", s_size(stack_b));
 			s_print(stack_b);
 			//check stack_a
 			printf("size a: %d\n", s_size(stack_a));
 			s_print(stack_a);
+			write(1, "\n", 1);*/
 
 
 			

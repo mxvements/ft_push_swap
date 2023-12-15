@@ -2,3 +2,67 @@ pa
 pa
 pa
 sb
+pa
+pa
+rrb
+rrb
+pa
+pa
+rrb
+rrb
+pa
+rb
+pa
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+pa
+ra
+pa
+rb
+rb
+pa
+rr
+rr
+rb
+rb
+pa
+rb
+rb
+pa
+rr
+rr
+pa
+ra
+-fin-
+leaks Report Version: 4.0
+Process 81843: 198 nodes malloced for 10 KB
+Process 81843: 0 leaks for 0 total leaked bytes.
+
+size b: 17
+node 0: 0x7fd97cc05ba0 -> nbr:6, cost:2 (self:2 out:2)
+node 1: 0x7fd97cc05ab0 -> nbr:4, cost:0 (self:0 out:0)
+node 2: 0x7fd97cc05a60 -> nbr:3, cost:2 (self:0 out:2)
+node 3: 0x7fd97cc05970 -> nbr:2, cost:0 (self:0 out:0)
+node 4: 0x7fd97cc058d0 -> nbr:1, cost:0 (self:0 out:0)
+node 5: 0x7fd97cc05a10 -> nbr:590, cost:0 (self:0 out:0)
+node 6: 0x7fd97cc05b00 -> nbr:571, cost:2 (self:0 out:2)
+node 7: 0x7fd97cc05e70 -> nbr:324, cost:1 (self:1 out:0)
+node 8: 0x7fd97cc05dd0 -> nbr:242, cost:2 (self:2 out:0)
+node 9: 0x7fd97cc05ec0 -> nbr:167, cost:2 (self:0 out:2)
+node 10: 0x7fd97cc05ce0 -> nbr:98, cost:1 (self:1 out:0)
+node 11: 0x7fd97cc05c40 -> nbr:21, cost:2 (self:2 out:0)
+node 12: 0x7fd97cc05b50 -> nbr:15, cost:1 (self:0 out:1)
+node 13: 0x7fd97cc05c90 -> nbr:14, cost:4 (self:2 out:4)
+node 14: 0x7fd97cc059c0 -> nbr:12, cost:0 (self:0 out:0)
+node 15: 0x7fd97cc05d30 -> nbr:9, cost:2 (self:0 out:2)
+node 16: 0x7fd97cc05920 -> nbr:7, cost:0 (self:0 out:0)
+size a: 3
+node 1: 0x7fd97cc05d80 -> nbr:684, cost:6 (self:0 out:6)
+node 2: 0x7fd97cc05e20 -> nbr:903, cost:6 (self:1 out:6)
+node 0: 0x7fd97cc05bf0 -> nbr:981, cost:7 (self:1 out:6)
+stack ordenado
