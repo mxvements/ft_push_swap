@@ -62,42 +62,62 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 {
 	t_dll		*tmp;
 	t_content	*tmpcont;
+	t_dll		*min;
+	t_content	*mincont;
+	t_dll		*max;
+	t_content	*maxcont;
 
+	//get min and max from the stack
 	tmp = *stack_b;
-	tmpcont = tmp->content;
-	//case1
-	//nbr lower than the top, we find the first the lower to it to insert on top
-	while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
-	{
-		tmp = tmp->next;
-		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr > nbr)
-			return (tmp);
-	}
-	//case2 and 3
-	//nbr higher than the top, we start from the bottom
-	//nbr lower than the last, we find the first higher to it to insert it after (return the next)
-	tmp = ft_dlllast(*stack_b);
-	tmpcont = tmp->content;
-	if (nbr > ((t_content *)tmp->content)->nbr)
-		return (*stack_b);
-	while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr) //BROKEN HERE
-	{
-		tmp = tmp->prev;
-		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr < nbr)
-			return (tmp->next); //we need to return the first that is lower
-	}
-	//case left: the number is a new max.
-	tmp = *stack_b;
-	tmpcont = tmp->content;
-	while (tmp->next)
+	min =  tmp;
+	max = tmp;
+	while (tmp)
 	{
 		tmpcont = tmp->content;
-		if (tmpcont->nbr > ((t_content *)tmp->next->content)->nbr)
-			return (tmp->next);
+		if (((t_content *)min->content)->nbr > tmpcont->nbr)
+		{
+			min = tmp;
+			mincont = min->content;
+		}
+		if (((t_content *)max->content)->nbr < tmpcont->nbr)
+		{
+			max = tmp;
+			maxcont = max->content;
+		}	
 		tmp = tmp->next;
 	}
+	//if the number is lower than the max && higher than the min
+	if (nbr < ((t_content *)max->content)->nbr && nbr > ((t_content *)min->content)->nbr)
+	{
+		tmp = *stack_b;
+		tmpcont = tmp->content;
+		while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
+		{
+			tmp = tmp->next;
+			tmpcont = tmp->content;
+			if (((t_content *)tmp->content)->nbr > nbr)
+				return (tmp);
+		}
+		tmp = ft_dlllast(*stack_b);
+		tmpcont = tmp->content;
+		while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr)
+		{
+			tmp = tmp->prev;
+			tmpcont = tmp->content;
+			if (((t_content *)tmp->content)->nbr < nbr)
+				return (tmp->next); 
+		}
+	}
+	//if its a new max or a new min..
+	else if (nbr > ((t_content *)max->content)->nbr)
+	{
+		if (max->next)
+			return (max->next);
+		else
+			return (*stack_b);
+	}
+	else if (nbr < ((t_content *)min->content)->nbr)
+		return (min);
 	return (*stack_b);
 }
 
@@ -139,13 +159,10 @@ void	getcost_b(t_dll **stack_a, t_dll **stack_b)
 	node = (*stack_b);
 	while (node)
 	{
-		//update node info
 		ndcontent = node->content;
 		ndcontent->slen = slen_b;
 		ndcontent->cost = getnodecost(node, slen_b);
-		//get the node in the next stack -> this should be a funct
 		tmp = getnextstacknode(stack_a, ndcontent->nbr);
-		//update 'out'node info //must update its own info as well
 		ndcontent->slen_out = slen_a;
 		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
 		ndcontent->cost_out = getnodecost(tmp, slen_a);

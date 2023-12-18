@@ -57,7 +57,8 @@ void	*s_pop(t_dll **head)
 	popnode = (*head)->content;
 	*head = (*head)->next;
 	free(tmp);
-	(*head)->prev = NULL;
+	if ((*head) != NULL)
+		(*head)->prev = NULL;
 	return (popnode);
 }
 
