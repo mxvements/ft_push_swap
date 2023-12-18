@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:14:45 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/13 16:14:46 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/17 23:15:38 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	movenodes(t_dll *node, t_dll **stack_a, t_dll **stack_b)
+void	movenode(t_dll *node, t_dll **stack_a, t_dll **stack_b)
 {
 	t_content	*cont;
 	int			moves_self;
@@ -107,8 +107,6 @@ int		getcheapest(t_dll **stack_a)
 	cheapest_idx = ((t_content *)tmp->content)->indx;
 	while (tmp)
 	{
-		if (((t_content *)tmp->content)->cost_tot > cheapest_cost)
-			return (cheapest_idx);
 		if (((t_content *)tmp->content)->cost_tot < cheapest_cost)
 		{
 			cheapest_cost = ((t_content *)tmp->content)->cost_tot;
@@ -122,15 +120,15 @@ int		getcheapest(t_dll **stack_a)
 void	move_a(t_dll **stack_a, t_dll **stack_b)
 {
 	int			cheapest;
-	int			i;
+	//int			i;
 	t_dll		*node;
 	t_content	*ndcontent;
-	t_dll		*tmp;
+	//t_dll		*tmp;
 
 	cheapest = getcheapest(stack_a);
-	i = -1;
+	//i = -1;
 	node = (*stack_a);
-	tmp = (*stack_b);
+	//tmp = (*stack_b);
 	while (node)
 	{
 		ndcontent = node->content;
@@ -149,8 +147,37 @@ void	move_a(t_dll **stack_a, t_dll **stack_b)
 
 
 			
-			movenodes(node, stack_a, stack_b);
+			movenode(node, stack_a, stack_b);
 			push_b(stack_a, stack_b); //push to b
+			break;
+		}
+	}
+	
+}
+
+void	move_b(t_dll **stack_a, t_dll **stack_b)
+{
+	int			cheapest;
+	//int			i;
+	t_dll		*node;
+	t_content	*ndcontent;
+	//t_dll		*tmp;
+
+	cheapest = getcheapest(stack_b);
+	//i = -1;
+	node = (*stack_b);
+	//tmp = (*stack_b);
+	while (node)
+	{
+		ndcontent = node->content;
+		if ((int)(ndcontent->indx) != cheapest)
+			node = node->next;
+		if ((int)(ndcontent->indx) == cheapest)
+		{
+			movenode(node, stack_b, stack_a);
+			push_a(stack_a, stack_b);
+			
+			
 			break;
 		}
 	}
