@@ -1,38 +1,66 @@
-pb
-pb
-pb
-pb
-pb
-pb
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
 sa
-sa
-sa
-pb
-pb
+rb
+pa
+rb
+pa
+pa
+rb
+pa
+rb
+pa
+rra
+rra
+pa
+rb
+rra
+rra
+pa
 rr
-pb
-ra
-pb
-rrb
-rrb
-rrb
-pb
-pb
+rr
+rb
+rb
+pa
+rb
+rb
+pa
+rr
+rb
+rb
+pa
+rb
+rb
+pa
+rr
+pa
 -fin-
-leaks Report Version: 4.0
-Process 29244: 177 nodes malloced for 9 KB
-Process 29244: 0 leaks for 0 total leaked bytes.
-
-size b: 0
-empty list
-size a: 10
-node 0: 0x7fe21c405900 -> nbr:7, cost:0 (self:0 out:0)
-node 1: 0x7fe21c4059a0 -> nbr:12, cost:3 (self:0 out:3)
-node 2: 0x7fe21c405b30 -> nbr:15, cost:0 (self:0 out:0)
-node 3: 0x7fe21c405ae0 -> nbr:571, cost:0 (self:0 out:0)
-node 4: 0x7fe21c4059f0 -> nbr:590, cost:0 (self:0 out:0)
-node 5: 0x7fe21c4058b0 -> nbr:1, cost:1 (self:1 out:0)
-node 6: 0x7fe21c405950 -> nbr:2, cost:1 (self:1 out:1)
-node 7: 0x7fe21c405a40 -> nbr:3, cost:0 (self:0 out:0)
-node 8: 0x7fe21c405a90 -> nbr:4, cost:0 (self:0 out:0)
-node 9: 0x7fe21c405b80 -> nbr:6, cost:0 (self:0 out:0)
+size b: 1
+node 0: 0x5618bee412e0 -> nbr:1, cost:5 (self:0 out:5)
+size a: 15
+node 0: 0x5618bee414c0 -> nbr:3, cost:1 (self:1 out:1)
+node 1: 0x5618bee41640 -> nbr:6, cost:1 (self:0 out:1)
+node 2: 0x5618bee41340 -> nbr:7, cost:2 (self:2 out:0)
+node 3: 0x5618bee41400 -> nbr:12, cost:3 (self:2 out:1)
+node 4: 0x5618bee415e0 -> nbr:15, cost:1 (self:0 out:1)
+node 5: 0x5618bee41700 -> nbr:21, cost:1 (self:0 out:1)
+node 6: 0x5618bee417c0 -> nbr:98, cost:0 (self:0 out:0)
+node 7: 0x5618bee41580 -> nbr:571, cost:4 (self:2 out:4)
+node 8: 0x5618bee41880 -> nbr:684, cost:0 (self:0 out:0)
+node 9: 0x5618bee41520 -> nbr:4, cost:2 (self:0 out:2)
+node 10: 0x5618bee41820 -> nbr:9, cost:0 (self:0 out:0)
+node 11: 0x5618bee41760 -> nbr:14, cost:1 (self:0 out:1)
+node 12: 0x5618bee41460 -> nbr:590, cost:3 (self:1 out:3)
+node 13: 0x5618bee416a0 -> nbr:981, cost:0 (self:0 out:0)
+node 14: 0x5618bee413a0 -> nbr:2, cost:2 (self:0 out:2)

@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:07:43 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/11 00:23:00 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/17 01:26:39 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ void	sort3_desc(t_dll **stack);
 void	sort3_asc(t_dll **stack);
 //getcost
 void	getcost_a(t_dll **stack_a, t_dll **stack_b);
+void	getcost_b(t_dll **stack_a, t_dll **stack_b);
 int		gettotalcost(t_dll *node);
 int		getnodecost(t_dll *node, int slen);
 void	move_a(t_dll **stack_a, t_dll **stack_b);
+void	move_b(t_dll **stack_a, t_dll **stack_b);
 
 #endif

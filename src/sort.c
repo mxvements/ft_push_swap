@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:22:22 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/11 00:35:47 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/17 23:41:59 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,24 +114,30 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 	}
 	if (s_size(stack_a) >= 6)
 	{
-		while (s_size(stack_a) > 4)
+		while (s_size(stack_a) > 3)
 			push_b(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
 		s_updateindx(stack_a);
 		s_updateindx(stack_b);
-
-		while (s_size(stack_b) >= 1)
+		
+		while (s_size(stack_b) > 1)
 		{
-			getcost_a(stack_b, stack_a); //refactor
-			move_a(stack_b, stack_a); //refactor
+			getcost_b(stack_a, stack_b); // changed stacks
+			move_b(stack_a, stack_b);
 			s_updateindx(stack_a);
 			s_updateindx(stack_b);
+
+			
+			//check stack_b
+			printf("size b: %d\n", s_size(stack_b));
+			s_print(stack_b);
+			//check stack_a
+			printf("size a: %d\n", s_size(stack_a));
+			s_print(stack_a);
+			write(1, "\n", 1);
+			write(1, "\n", 1);
 		}
-
-		
-
-
-		//sort3_c(stack_b, 'b');
+		//sort3_c(stack_a, 'a');
 
 		//push to a (without optimising)
 		/*while (s_size(stack_b) > 0)
