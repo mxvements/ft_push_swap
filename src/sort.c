@@ -114,6 +114,7 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 			getcost_b(stack_a, stack_b); // changed stacks
 			move_b_to_a(stack_a, stack_b);
 		}
+		//TODO: needs the final funct to rotate a until it is ordered
 	}
 }
 
