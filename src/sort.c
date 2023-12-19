@@ -54,6 +54,7 @@ void	sort3_asc(t_dll **stack)
 	}
 }
 
+//TODO: optimize algo
 void	sort3_desc(t_dll **stack)
 {
 	t_dll		*tmp;

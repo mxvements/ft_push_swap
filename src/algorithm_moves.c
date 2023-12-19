@@ -29,12 +29,12 @@ void	movenode_drot(t_dll **node, t_dll **stack_a, t_dll **stack_b)
 	}
 	while (moves_self == 0 && moves_out > 0)
 	{
-		rot(stack_b, 'b');
+		rot(stack_a, 'a');
 		moves_out--;
 	}
 	while (moves_out == 0 && moves_self > 0)
 	{
-		rot(stack_a, 'a');
+		rot(stack_b, 'b');
 		moves_self--;
 	}
 }
@@ -56,12 +56,12 @@ void	movenode_drvrot(t_dll **node, t_dll **stack_a, t_dll **stack_b)
 	}
 	while (moves_self == 0 && moves_out > 0)
 	{
-		rvrot(stack_b, 'b');
+		rvrot(stack_a, 'a');
 		moves_out--;
 	}
 	while (moves_self > 0 && moves_out == 0)
 	{
-		rvrot(stack_a, 'a');
+		rvrot(stack_b, 'b');
 		moves_self--;
 	}
 }
@@ -77,12 +77,12 @@ void	movenode_rota_rvrotb(t_dll **node, t_dll **stack_a, t_dll **stack_b)
 	moves_out = cont->cost_out;
 	while (moves_self > 0)
 	{
-		rot(stack_a, 'a');
+		rot(stack_b, 'b');
 		moves_self--;
 	}
 	while (moves_out > 0)
 	{
-		rvrot(stack_b, 'b');
+		rvrot(stack_a, 'a');
 		moves_out--;
 	}
 }
@@ -98,12 +98,12 @@ void	movenode_rotb_rvrota(t_dll **node, t_dll **stack_a, t_dll **stack_b)
 	moves_out = cont->cost_out;
 	while (moves_out > 0)
 	{
-		rot(stack_b, 'b');
+		rot(stack_a, 'a');
 		moves_out--;
 	}
 	while (moves_self > 0)
 	{
-		rvrot(stack_a, 'a');
+		rvrot(stack_b, 'b');
 		moves_self--;
 	}
 }

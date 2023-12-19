@@ -12,13 +12,13 @@
 
 #include "../include/push_swap.h"
 
-int		getcheapest(t_dll **stack_a)
+int		getcheapest(t_dll **stack)
 {
 	t_dll	*tmp;
 	int		cheapest_idx;
 	int		cheapest_cost;
 
-	tmp = (*stack_a);
+	tmp = (*stack);
 	cheapest_cost = ((t_content *)tmp->content)->cost_tot;
 	cheapest_idx = ((t_content *)tmp->content)->indx;
 	while (tmp)
@@ -36,15 +36,11 @@ int		getcheapest(t_dll **stack_a)
 void	move_b_to_a(t_dll **stack_a, t_dll **stack_b)
 {
 	int			cheapest;
-	//int			i;
 	t_dll		*node;
 	t_content	*ndcontent;
-	//t_dll		*tmp;
 
 	cheapest = getcheapest(stack_b);
-	//i = -1;
 	node = (*stack_b);
-	//tmp = (*stack_b);
 	while (node)
 	{
 		ndcontent = node->content;
@@ -52,7 +48,7 @@ void	move_b_to_a(t_dll **stack_a, t_dll **stack_b)
 			node = node->next;
 		if ((int)(ndcontent->indx) == cheapest)
 		{
-			movenode(node, stack_b, stack_a);
+			movenode(node, stack_a, stack_b);
 			push_a(stack_a, stack_b);
 			break;
 		}
