@@ -34,7 +34,7 @@ void	s_freenode(t_dll *node)
 	free(node);
 }
 
-void	s_getbounds(t_dll **stack, t_dll **min, t_dll **max)
+void	s_findbounds(t_dll **stack, t_dll **min, t_dll **max)
 {
 	t_dll 		*tmp;
 	t_content	*tmpcont;

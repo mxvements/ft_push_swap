@@ -27,6 +27,6 @@ void	*s_pop(t_dll **head);
 int		s_size(t_dll **head);
 void	s_free(t_dll **head);
 void	s_freenode(t_dll *node);
-void	s_getbounds(t_dll **stack, t_dll **min, t_dll **max);
+void	s_findbounds(t_dll **stack, t_dll **min, t_dll **max);
 
 #endif

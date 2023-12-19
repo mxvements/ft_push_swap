@@ -12,6 +12,59 @@
 
 #include "../include/push_swap.h"
 
+static t_dll	*findnextnode_inbounds(int nbr, t_dll **stack)
+{
+	t_dll		*tmp;
+	t_content	*tmpcont;
+
+	tmp = *stack;
+	tmpcont = tmp->content;
+	while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
+	{
+		tmp = tmp->next;
+		tmpcont = tmp->content;
+		if (((t_content *)tmp->content)->nbr > nbr)
+			return (tmp);
+	}
+	tmp = ft_dlllast(*stack);
+	tmpcont = tmp->content;
+	while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr)
+	{
+		tmp = tmp->prev;
+		tmpcont = tmp->content;
+		if (((t_content *)tmp->content)->nbr < nbr)
+			return (tmp->next);
+	}
+	return (*stack);
+}
+
+t_dll	*findnextnode(int nbr, t_dll **stack)
+{
+	t_dll		*tmp;
+	//check these var
+	t_dll		*min;
+	t_dll		*max;
+
+	tmp = *stack;
+	min = tmp;
+	max = tmp;
+	s_findbounds(stack, &min, &max);
+	if (nbr > ((t_content *)max->content)->nbr
+		|| nbr < ((t_content *)min->content)->nbr)
+	{
+		if (nbr > ((t_content *)max->content)->nbr)
+		{
+			if (max->next)
+				return (max->next);
+			else
+				return (*stack);
+		}
+		else if (nbr < ((t_content *)min->content)->nbr)
+			return (min);
+	}
+	return (findnextnode_inbounds(nbr, stack));
+}
+
 int	getnodecost(t_dll *node, int slen)
 {
 	t_content	*ndcontent;
@@ -55,60 +108,7 @@ int	gettotalcost(t_dll *node)
 	return (cost_tot);
 }
 
-t_dll	*findnextnode_inbounds(int nbr, t_dll **stack)
-{
-	t_dll		*tmp;
-	t_content	*tmpcont;
-
-	tmp = *stack;
-	tmpcont = tmp->content;
-	while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
-	{
-		tmp = tmp->next;
-		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr > nbr)
-			return (tmp);
-	}
-	tmp = ft_dlllast(*stack);
-	tmpcont = tmp->content;
-	while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr)
-	{
-		tmp = tmp->prev;
-		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr < nbr)
-			return (tmp->next);
-	}
-	return (*stack);
-}
-
-t_dll	*findnextnode(int nbr, t_dll **stack)
-{
-	t_dll		*tmp;
-	//check these var
-	t_dll		*min;
-	t_dll		*max;
-
-	tmp = *stack;
-	min = tmp;
-	max = tmp;
-	s_getbounds(stack, &min, &max);
-	if (nbr > ((t_content *)max->content)->nbr
-		|| nbr < ((t_content *)min->content)->nbr)
-	{
-		if (nbr > ((t_content *)max->content)->nbr)
-		{
-			if (max->next)
-				return (max->next);
-			else
-				return (*stack);
-		}
-		else if (nbr < ((t_content *)min->content)->nbr)
-			return (min);
-	}
-	return (findnextnode_inbounds(nbr, stack));
-}
-
-//TODO change funct name
+//TODO: change funct name
 void	getcost_b(t_dll **stack_a, t_dll **stack_b)
 {
 	t_dll		*tmp;
@@ -123,7 +123,7 @@ void	getcost_b(t_dll **stack_a, t_dll **stack_b)
 		ndcontent = node->content;
 		ndcontent->slen = slen_b;
 		ndcontent->cost = getnodecost(node, slen_b);
-		tmp = findnextnode(ndcontent->nbr, stack_a); //changed name of funct
+		tmp = findnextnode(ndcontent->nbr, stack_a);
 		ndcontent->slen_out = slen_a;
 		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
 		ndcontent->cost_out = getnodecost(tmp, slen_a);
