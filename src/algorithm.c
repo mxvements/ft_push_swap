@@ -29,7 +29,6 @@ void	movenode(t_dll *node, t_dll **stack_a, t_dll **stack_b)
 	{
 		while (moves_self > 0 && moves_out > 0)
 		{
-			//need to bring stacks
 			drot(stack_a, stack_b);
 			moves_self--;
 			moves_out--;
@@ -117,45 +116,7 @@ int		getcheapest(t_dll **stack_a)
 	return (cheapest_idx);
 }
 
-void	move_a(t_dll **stack_a, t_dll **stack_b)
-{
-	int			cheapest;
-	//int			i;
-	t_dll		*node;
-	t_content	*ndcontent;
-	//t_dll		*tmp;
-
-	cheapest = getcheapest(stack_a);
-	//i = -1;
-	node = (*stack_a);
-	//tmp = (*stack_b);
-	while (node)
-	{
-		ndcontent = node->content;
-		if ((int)(ndcontent->indx) != cheapest)
-			node = node->next;
-		if ((int)(ndcontent->indx) == cheapest)
-		{
-			/*
-			//check stack_b
-			printf("size b: %d\n", s_size(stack_b));
-			s_print(stack_b);
-			//check stack_a
-			printf("size a: %d\n", s_size(stack_a));
-			s_print(stack_a);
-			write(1, "\n", 1);*/
-
-
-			
-			movenode(node, stack_a, stack_b);
-			push_b(stack_a, stack_b); //push to b
-			break;
-		}
-	}
-	
-}
-
-void	move_b(t_dll **stack_a, t_dll **stack_b)
+void	move_b_to_a(t_dll **stack_a, t_dll **stack_b)
 {
 	int			cheapest;
 	//int			i;
@@ -176,8 +137,6 @@ void	move_b(t_dll **stack_a, t_dll **stack_b)
 		{
 			movenode(node, stack_b, stack_a);
 			push_a(stack_a, stack_b);
-			
-			
 			break;
 		}
 	}

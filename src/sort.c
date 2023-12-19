@@ -92,45 +92,27 @@ void	sort3_c(t_dll **stack, char c)
 		ft_putstr_fd("ERROR: wrong stack\n", 1);
 }
 
-/*
-* 
-*/
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
-	s_updateindx(stack_a);
-	//s_updateindx(stack_b);
 	if (s_size(stack_a) < 4)
 		sort3_c(stack_a, 'a');
-	if (s_size(stack_a) < 6)
+	else if (s_size(stack_a) < 6)
 	{
 		push_b_save3(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
 		sort3_c(stack_b, 'b');
 	}
-	if (s_size(stack_a) >= 6)
+	else
 	{
 		while (s_size(stack_a) > 3)
 			push_b(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
-		s_updateindx(stack_a);
-		s_updateindx(stack_b);
-
 		while (s_size(stack_b) >= 1)
 		{
-			getcost_b(stack_a, stack_b); // changed stacks
-			move_b(stack_a, stack_b);
 			s_updateindx(stack_a);
 			s_updateindx(stack_b);
-
-			/*
-			//check stack_b
-			printf("\nsize b: %d\n", s_size(stack_b));
-			s_print(stack_b);
-			//check stack_a
-			printf("size a: %d\n", s_size(stack_a));
-			s_print(stack_a);
-			write(1, "\n", 1);
-			write(1, "\n", 1);*/
+			getcost_b(stack_a, stack_b); // changed stacks
+			move_b_to_a(stack_a, stack_b);
 		}
 	}
 }

@@ -18,8 +18,6 @@ int	getnodecost(t_dll *node, int slen)
 	t_content	*ndcontent;
 	int			i;
 	int			cost;
-	//by movements
-	int			sw = 0;
 	int			ro = 0;
 	int			rro = 0;
 
@@ -28,10 +26,10 @@ int	getnodecost(t_dll *node, int slen)
 	if (i == 0)
 		cost = 0;
 	else if (i <= (slen / 2))
-		ro = i; //we only use swap to sort at the start, this is bette to maintain stack_b sorted
+		ro = i;
 	else
 		rro = slen - i;
-	cost = ro + sw + rro;
+	cost = ro + rro;
 	return (cost);
 }
 
@@ -52,9 +50,9 @@ int	gettotalcost(t_dll *node)
 		cost_max = content->cost_out;
 	if ((indx <= (content->slen / 2) && indx_out <= (content->slen_out / 2))
 		|| (indx > (content->slen / 2) && indx_out > (content->slen_out / 2)))
-		cost_tot = cost_max; //cost = the higher + push
+		cost_tot = cost_max;
 	else
-		cost_tot = content->cost + content->cost_out; //+push
+		cost_tot = content->cost + content->cost_out;
 	return (cost_tot);
 }
 
@@ -119,33 +117,6 @@ t_dll	*getnextstacknode(t_dll **stack_b, int nbr)
 	else if (nbr < ((t_content *)min->content)->nbr)
 		return (min);
 	return (*stack_b);
-}
-
-//https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-void	getcost_a(t_dll **stack_a, t_dll **stack_b)
-{
-	t_dll		*tmp;
-	t_dll		*node;
-	t_content	*ndcontent;
-	const int	slen_a = s_size(stack_a);
-	const int	slen_b = s_size(stack_b);
-
-	node = (*stack_a);
-	while (node)
-	{
-		//update node info
-		ndcontent = node->content;
-		ndcontent->slen = slen_a;
-		ndcontent->cost = getnodecost(node, slen_a);
-		//get the node in the next stack -> this should be a funct
-		tmp = getnextstacknode(stack_b, ndcontent->nbr);
-		//update 'out'node info //must update its own info as well
-		ndcontent->slen_out = slen_b;
-		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
-		ndcontent->cost_out = getnodecost(tmp, slen_b);
-		ndcontent->cost_tot = gettotalcost(node);
-		node = node->next;
-	}
 }
 
 void	getcost_b(t_dll **stack_a, t_dll **stack_b)

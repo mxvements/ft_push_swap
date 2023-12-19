@@ -15,654 +15,79 @@ pb
 pb
 pb
 pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
-pb
+ra
 sa
-pa
-rb
-pa
-rb
-pa
-rb
-pa
-rb
-pa
-rr
 rb
 pa
 rrr
-rra
 pa
-rrr
-rra
-rra
-pa
-rrr
-rrr
-pa
-rrb
-rrb
-pa
-rr
-ra
-pa
-rb
-pa
-rr
-ra
-pa
-rrb
-pa
-rr
-rr
-rr
-rr
-rr
-pa
-ra
-rrb
 rrb
 pa
 rb
 rb
-pa
-rr
-rr
 rb
-pa
-rrb
-rrb
-rrb
-pa
-ra
-rrb
-rrb
-pa
-rr
-rr
-rr
-pa
-ra
-ra
-ra
-pa
-ra
-ra
-rrb
-rrb
-pa
-rrr
-rrr
-rrr
-rrr
-pa
-rra
-rra
-rra
-pa
-rrr
-pa
-rrr
-rrr
-rra
-rra
-rra
-pa
-rrr
-rrr
-pa
-rrr
-rrr
-pa
-rrb
-pa
-rra
-pa
-rrb
-rrb
-pa
-rb
-rb
-pa
-ra
-rrb
-pa
-rrr
-rrr
-rrb
-pa
-rrr
-rrb
-pa
-rr
-rr
-ra
-ra
-ra
-pa
-rr
-ra
-ra
-pa
-ra
-ra
-ra
-rrb
-rrb
-rrb
-rrb
-rrb
-pa
-ra
-ra
-rrb
-rrb
-rrb
-rrb
-pa
-rr
-pa
-rr
-rr
-ra
-ra
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-ra
-ra
-ra
-rrb
-rrb
-rrb
-pa
-rrb
-rrb
-rrb
-rrb
-rrb
-rrb
-pa
-rrb
-pa
-rrr
-rrr
-rrr
-rrb
-pa
-rrr
-rrr
-rrr
-rrb
 pa
 rb
 pa
-rrr
-rrr
-rrr
-pa
-rr
-ra
-ra
-pa
-ra
-rrb
-rrb
-pa
-rrr
-rrr
-rra
-pa
-rrb
-rrb
-rrb
-pa
-ra
-rrb
-pa
-rrr
-rrb
-pa
-rr
-ra
-ra
 pa
 rb
-rb
-rb
-rb
-rb
-rb
-pa
-rra
-rra
-pa
-rrr
-rrr
-rrr
-rrr
-rrr
-rrr
-rrr
-rrr
-rra
-pa
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-rrb
-rrb
-rrb
-rrb
-rrb
-pa
-ra
-ra
-ra
-rrb
-rrb
-rrb
-rrb
-pa
-ra
-ra
-rrb
-rrb
-pa
-rrr
-rrr
-rrr
-rrr
-rrb
-rrb
-rrb
-pa
-rrr
-rrb
-rrb
-rrb
-rrb
-pa
-rrr
-rrr
-rra
-rra
-pa
-rb
-rra
-rra
-pa
-rra
-rra
-pa
-rrr
-rrb
-rrb
-rrb
-rrb
 pa
 ra
 ra
 pa
 rrr
-rrr
-rrb
-pa
-rrr
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-rrb
-rrb
-rrb
-rrb
-rrb
-rrb
-pa
-ra
-ra
-pa
-rrb
-pa
-rrb
-pa
-rra
-pa
-rrb
 rrb
 pa
 ra
 pa
 pa
-rr
-rr
 ra
 ra
 pa
+ra
 rrb
 pa
-pa
-rr
-rr
-rb
-rb
-pa
-rr
-rr
-rr
-rb
-rb
-pa
-rr
-rb
-rb
-rb
-rb
+rrb
+rrb
 pa
 rb
-rb
-rb
-rb
-rb
-rb
-rb
 pa
-rr
-rr
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
 pa
-rr
-rb
-rb
-rb
-rb
-pa
-rb
-rb
-rra
-rra
-pa
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rra
-pa
-rr
-rr
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-pa
-rb
-rb
-pa
-ra
-pa
-rb
-rb
-rb
-rb
-pa
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
+rrb
 pa
 -fin-
 leaks Report Version: 4.0
-Process 13080: 357 nodes malloced for 16 KB
-Process 13080: 0 leaks for 0 total leaked bytes.
+Process 69687: 197 nodes malloced for 10 KB
+Process 69687: 0 leaks for 0 total leaked bytes.
 
 size b: 0
 empty list
-size a: 100
-node 0: 0x7fec42406620 -> nbr:317, cost:8 (self:0 out:8)
-node 1: 0x7fec42405950 -> nbr:324, cost:4 (self:4 out:2)
-node 2: 0x7fec42406c60 -> nbr:325, cost:4 (self:2 out:4)
-node 3: 0x7fec42405d10 -> nbr:328, cost:2 (self:0 out:2)
-node 4: 0x7fec424061c0 -> nbr:335, cost:3 (self:3 out:1)
-node 5: 0x7fec42407750 -> nbr:353, cost:0 (self:0 out:0)
-node 6: 0x7fec424064e0 -> nbr:356, cost:1 (self:1 out:0)
-node 7: 0x7fec42406990 -> nbr:366, cost:5 (self:3 out:5)
-node 8: 0x7fec42405d60 -> nbr:384, cost:1 (self:0 out:1)
-node 9: 0x7fec42407250 -> nbr:412, cost:2 (self:2 out:2)
-node 10: 0x7fec42405e00 -> nbr:420, cost:1 (self:0 out:1)
-node 11: 0x7fec42406350 -> nbr:424, cost:4 (self:3 out:4)
-node 12: 0x7fec42405c70 -> nbr:430, cost:5 (self:1 out:5)
-node 13: 0x7fec42406490 -> nbr:438, cost:2 (self:2 out:0)
-node 14: 0x7fec42406940 -> nbr:449, cost:9 (self:3 out:6)
-node 15: 0x7fec42406300 -> nbr:466, cost:1 (self:0 out:1)
-node 16: 0x7fec424074d0 -> nbr:471, cost:2 (self:1 out:2)
-node 17: 0x7fec42407700 -> nbr:472, cost:0 (self:0 out:0)
-node 18: 0x7fec424071b0 -> nbr:488, cost:5 (self:5 out:2)
-node 19: 0x7fec42405b80 -> nbr:530, cost:7 (self:0 out:7)
-node 20: 0x7fec424077a0 -> nbr:535, cost:0 (self:0 out:0)
-node 21: 0x7fec42406210 -> nbr:557, cost:4 (self:3 out:4)
-node 22: 0x7fec42406ad0 -> nbr:558, cost:5 (self:5 out:1)
-node 23: 0x7fec424059f0 -> nbr:571, cost:2 (self:0 out:2)
-node 24: 0x7fec424067b0 -> nbr:589, cost:3 (self:2 out:3)
-node 25: 0x7fec42406e40 -> nbr:609, cost:1 (self:1 out:1)
-node 26: 0x7fec42407520 -> nbr:611, cost:2 (self:2 out:1)
-node 27: 0x7fec42406df0 -> nbr:616, cost:3 (self:3 out:0)
-node 28: 0x7fec42406580 -> nbr:633, cost:2 (self:2 out:0)
-node 29: 0x7fec424068a0 -> nbr:640, cost:5 (self:1 out:5)
-node 30: 0x7fec42406080 -> nbr:659, cost:1 (self:0 out:1)
-node 31: 0x7fec42406cb0 -> nbr:670, cost:4 (self:4 out:4)
-node 32: 0x7fec424060d0 -> nbr:673, cost:6 (self:0 out:6)
-node 33: 0x7fec42407340 -> nbr:678, cost:1 (self:0 out:1)
-node 34: 0x7fec42405a90 -> nbr:684, cost:15 (self:2 out:15)
-node 35: 0x7fec424065d0 -> nbr:696, cost:4 (self:4 out:2)
-node 36: 0x7fec42406850 -> nbr:706, cost:2 (self:2 out:0)
-node 37: 0x7fec42406670 -> nbr:714, cost:3 (self:2 out:1)
-node 38: 0x7fec42407480 -> nbr:724, cost:1 (self:0 out:1)
-node 39: 0x7fec42406d00 -> nbr:725, cost:5 (self:1 out:5)
-node 40: 0x7fec42407390 -> nbr:737, cost:2 (self:2 out:1)
-node 41: 0x7fec42405ae0 -> nbr:742, cost:4 (self:2 out:2)
-node 42: 0x7fec42405f90 -> nbr:745, cost:5 (self:1 out:5)
-node 43: 0x7fec42406e90 -> nbr:750, cost:3 (self:1 out:2)
-node 44: 0x7fec42406b20 -> nbr:757, cost:4 (self:2 out:2)
-node 45: 0x7fec424070c0 -> nbr:772, cost:3 (self:1 out:2)
-node 46: 0x7fec42406120 -> nbr:779, cost:6 (self:3 out:3)
-node 47: 0x7fec42406800 -> nbr:780, cost:6 (self:2 out:4)
-node 48: 0x7fec42405ef0 -> nbr:792, cost:7 (self:4 out:7)
-node 49: 0x7fec42406760 -> nbr:793, cost:1 (self:1 out:1)
-node 50: 0x7fec424076b0 -> nbr:801, cost:0 (self:0 out:0)
-node 51: 0x7fec42405b30 -> nbr:805, cost:11 (self:1 out:10)
-node 52: 0x7fec42406260 -> nbr:817, cost:8 (self:8 out:0)
-node 53: 0x7fec42406530 -> nbr:820, cost:6 (self:6 out:2)
-node 54: 0x7fec42406c10 -> nbr:821, cost:3 (self:3 out:0)
-node 55: 0x7fec42406d50 -> nbr:834, cost:3 (self:3 out:3)
-node 56: 0x7fec42406f30 -> nbr:843, cost:3 (self:0 out:3)
-node 57: 0x7fec42405cc0 -> nbr:857, cost:4 (self:2 out:2)
-node 58: 0x7fec424068f0 -> nbr:861, cost:8 (self:3 out:5)
-node 59: 0x7fec42407070 -> nbr:880, cost:2 (self:0 out:2)
-node 60: 0x7fec42405db0 -> nbr:897, cost:7 (self:3 out:4)
-node 61: 0x7fec42407660 -> nbr:900, cost:1 (self:0 out:1)
-node 62: 0x7fec42405900 -> nbr:903, cost:2 (self:1 out:2)
-node 63: 0x7fec42407160 -> nbr:913, cost:5 (self:5 out:5)
-node 64: 0x7fec42406bc0 -> nbr:946, cost:5 (self:5 out:2)
-node 65: 0x7fec424063f0 -> nbr:958, cost:11 (self:6 out:5)
-node 66: 0x7fec42406a30 -> nbr:975, cost:3 (self:3 out:1)
-node 67: 0x7fec42406f80 -> nbr:976, cost:3 (self:2 out:3)
-node 68: 0x7fec42407430 -> nbr:980, cost:3 (self:2 out:3)
-node 69: 0x7fec42405a40 -> nbr:981, cost:2 (self:2 out:2)
-node 70: 0x7fec42407610 -> nbr:982, cost:1 (self:0 out:1)
-node 71: 0x7fec42406710 -> nbr:1000, cost:1 (self:1 out:0)
-node 72: 0x7fec424066c0 -> nbr:4, cost:9 (self:9 out:8)
-node 73: 0x7fec42407200 -> nbr:10, cost:2 (self:0 out:2)
-node 74: 0x7fec42406170 -> nbr:11, cost:2 (self:1 out:2)
-node 75: 0x7fec42405ea0 -> nbr:19, cost:3 (self:3 out:1)
-node 76: 0x7fec42406fd0 -> nbr:35, cost:2 (self:1 out:1)
-node 77: 0x7fec424075c0 -> nbr:37, cost:1 (self:0 out:1)
-node 78: 0x7fec42405fe0 -> nbr:40, cost:2 (self:1 out:1)
-node 79: 0x7fec42407110 -> nbr:61, cost:2 (self:0 out:2)
-node 80: 0x7fec424062b0 -> nbr:81, cost:3 (self:0 out:3)
-node 81: 0x7fec42405f40 -> nbr:85, cost:2 (self:2 out:0)
-node 82: 0x7fec42405e50 -> nbr:96, cost:6 (self:0 out:6)
-node 83: 0x7fec424059a0 -> nbr:98, cost:3 (self:3 out:1)
-node 84: 0x7fec424073e0 -> nbr:129, cost:1 (self:1 out:0)
-node 85: 0x7fec424072a0 -> nbr:146, cost:1 (self:0 out:1)
-node 86: 0x7fec42406a80 -> nbr:148, cost:35 (self:2 out:35)
-node 87: 0x7fec424063a0 -> nbr:152, cost:3 (self:3 out:2)
-node 88: 0x7fec42406da0 -> nbr:164, cost:1 (self:1 out:0)
-node 89: 0x7fec424069e0 -> nbr:201, cost:2 (self:0 out:2)
-node 90: 0x7fec42407570 -> nbr:207, cost:1 (self:0 out:1)
-node 91: 0x7fec424072f0 -> nbr:212, cost:2 (self:2 out:2)
-node 92: 0x7fec42406b70 -> nbr:232, cost:4 (self:0 out:4)
-node 93: 0x7fec42406030 -> nbr:234, cost:3 (self:1 out:2)
-node 94: 0x7fec424058b0 -> nbr:242, cost:2 (self:2 out:1)
-node 95: 0x7fec42406440 -> nbr:253, cost:3 (self:3 out:3)
-node 96: 0x7fec42405bd0 -> nbr:274, cost:0 (self:0 out:0)
-node 97: 0x7fec42406ee0 -> nbr:291, cost:0 (self:0 out:0)
-node 98: 0x7fec42407020 -> nbr:309, cost:1 (self:0 out:1)
-node 99: 0x7fec42405c20 -> nbr:311, cost:1 (self:1 out:0)
+size a: 20
+node 0: 0x7fb116c05900 -> nbr:7, cost:1 (self:0 out:1)
+node 1: 0x7fb116c05d10 -> nbr:9, cost:3 (self:0 out:3)
+node 2: 0x7fb116c059a0 -> nbr:12, cost:8 (self:0 out:8)
+node 3: 0x7fb116c05c70 -> nbr:14, cost:0 (self:0 out:0)
+node 4: 0x7fb116c05b30 -> nbr:15, cost:2 (self:2 out:0)
+node 5: 0x7fb116c05c20 -> nbr:21, cost:1 (self:0 out:1)
+node 6: 0x7fb116c05cc0 -> nbr:98, cost:1 (self:0 out:1)
+node 7: 0x7fb116c05ea0 -> nbr:167, cost:0 (self:0 out:0)
+node 8: 0x7fb116c05db0 -> nbr:242, cost:1 (self:0 out:1)
+node 9: 0x7fb116c05e50 -> nbr:324, cost:0 (self:0 out:0)
+node 10: 0x7fb116c05ae0 -> nbr:571, cost:2 (self:0 out:2)
+node 11: 0x7fb116c059f0 -> nbr:590, cost:1 (self:0 out:1)
+node 12: 0x7fb116c05d60 -> nbr:684, cost:1 (self:0 out:1)
+node 13: 0x7fb116c05e00 -> nbr:903, cost:0 (self:0 out:0)
+node 14: 0x7fb116c05bd0 -> nbr:981, cost:2 (self:1 out:1)
+node 15: 0x7fb116c058b0 -> nbr:1, cost:1 (self:1 out:1)
+node 16: 0x7fb116c05950 -> nbr:2, cost:2 (self:2 out:0)
+node 17: 0x7fb116c05a40 -> nbr:3, cost:0 (self:0 out:0)
+node 18: 0x7fb116c05a90 -> nbr:4, cost:1 (self:1 out:0)
+node 19: 0x7fb116c05b80 -> nbr:6, cost:2 (self:1 out:2)
