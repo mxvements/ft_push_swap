@@ -12,51 +12,6 @@
 
 #include "../include/push_swap.h"
 
-void	s_updateindx(t_dll **head)
-{
-	size_t		i;
-	t_dll		*tmp;
-	t_content	*tmpcontent;
-
-	tmp = *head;
-	i = 0;
-	while (tmp)
-	{
-		tmpcontent = tmp->content;
-		tmpcontent->indx = i;
-		i++;
-		tmp = tmp->next;
-	}
-}
-
-int	s_issorted(t_dll **head)
-{
-	t_dll	*tmp;
-
-	tmp = *head;
-	while (tmp->next != NULL)
-	{
-		if (*(int *)(tmp->content) > *(int *)(tmp->next->content))
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-int	s_isnodedup(t_dll **head, t_dll *node)
-{
-	t_dll	*tmp;
-
-	tmp = *head;
-	while (tmp)
-	{
-		if (*(int *)(tmp->content) == *(int *)(node->content))
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
 void	s_free(t_dll **head)
 {
 	t_dll	*tmp;
@@ -77,4 +32,21 @@ void	s_freenode(t_dll *node)
 	free(node->content);
 	node->content = NULL;
 	free(node);
+}
+
+void	s_getbounds(t_dll **stack, t_dll **min, t_dll **max)
+{
+	t_dll 		*tmp;
+	t_content	*tmpcont;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		tmpcont = tmp->content;
+		if (((t_content *)(*min)->content)->nbr > tmpcont->nbr)
+			(*min) = tmp;
+		if (((t_content *)(*max)->content)->nbr < tmpcont->nbr)
+			(*max) = tmp;
+		tmp = tmp->next;
+	}
 }
