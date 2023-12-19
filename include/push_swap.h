@@ -28,17 +28,13 @@
 typedef struct s_nodecontent
 {
 	int		nbr;
-	//its stack
+	int		cost_tot;
 	size_t	indx;
 	int		cost;
 	int		slen;
-	//the stack to move to
 	size_t	indx_out;
 	int		cost_out;
 	int		slen_out;
-	//total cost
-	int		cost_tot;
-
 } t_content;
 
 void	swap(t_dll **stack, char c);
@@ -62,6 +58,6 @@ t_dll	*findnextnode(int nbr, t_dll **stack);
 //move nodes
 void	move_b_to_a(t_dll **stack_a, t_dll **stack_b);
 int		getcheapest(t_dll **stack_a);
-void	movenode(t_dll *node, t_dll **stack_a, t_dll **stack_b);
+void	movenode(t_dll *node, t_dll **stack_out, t_dll **stack_self);
 
 #endif
