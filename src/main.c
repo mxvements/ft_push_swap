@@ -12,35 +12,44 @@
 
 #include "../include/push_swap.h"
 
-int main(int argc, char **argv)
+void	push_swap(char *s)
 {
 	t_dll	**stack_a;
 	t_dll	**stack_b;
+
+	if (*s == '\0')
+		return ;
+	stack_a = s_inithead();
+	stack_b = s_inithead();
+	if (!stack_a || !stack_b)
+	{
+		s_free(stack_a);
+		s_free(stack_b);
+		return ;
+	}
+	if (stack_a && stack_b)
+	{
+		stack_a = a_parse(s, stack_a);
+		sort(stack_a, stack_b);
+	}
+	if (s_issorted(stack_a) == 0)
+		printf("stack ordenado\n");
+	s_print(stack_a);
+	s_free(stack_a);
+	s_free(stack_b);
+}
+
+int main(int argc, char **argv)
+{
 	/*
-	100nbr -> 700movs
-	500nbr -> 5500mvs
+	100nbr -> 700 moves
+	500nbr -> 5500 moves
 	*/
 
 	if (argc != 2)
 		return (0);
-	stack_a = s_inithead();
-	stack_b = s_inithead();
-	if (stack_a && stack_b)
-	{
-		stack_a = a_parse(argv[1], stack_a);
-		sort(stack_a, stack_b);
-	}
-	else if (!stack_a || !(*stack_a))
-	{
-		printf("stack vacio\n");
-		s_free(stack_a);
-		s_free(stack_b);
-	}
-	if (s_issorted(stack_a) == 0)
-	{
-		printf("stack ordenado\n");
-		s_free(stack_a);
-	}
+	else
+		push_swap(argv[1]);
 	system("leaks -q push_swap");
 	return (0);
 }

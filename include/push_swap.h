@@ -58,5 +58,7 @@ t_dll	*findnextnode(int nbr, t_dll **stack);
 //move nodes
 void	movecheapest(t_dll **stack_out, t_dll **stack_self);
 void	movenode(t_dll *node, t_dll **stack_out, t_dll **stack_self);
+//
+void	push_swap(char *s);
 
 #endif

@@ -16,7 +16,7 @@ t_dll	**evalerror(t_dll **stack)
 {
 	s_free(stack);
 	stack = NULL;
-	printf("Error\n"); //perhaps this should be somewhere else
+	printf("Error\n");
 	return (stack);
 }
 
