@@ -108,22 +108,21 @@ int	gettotalcost(t_dll *node)
 	return (cost_tot);
 }
 
-//TODO: change funct name
-void	getcost_b(t_dll **stack_a, t_dll **stack_b)
+void	getcost(t_dll **stack_out, t_dll **stack_self)
 {
 	t_dll		*tmp;
 	t_dll		*node;
 	t_content	*ndcontent;
-	const int	slen_a = s_size(stack_a);
-	const int	slen_b = s_size(stack_b);
+	const int	slen_a = s_size(stack_out);
+	const int	slen_b = s_size(stack_self);
 
-	node = (*stack_b);
+	node = (*stack_self);
 	while (node)
 	{
 		ndcontent = node->content;
 		ndcontent->slen = slen_b;
 		ndcontent->cost = getnodecost(node, slen_b);
-		tmp = findnextnode(ndcontent->nbr, stack_a);
+		tmp = findnextnode(ndcontent->nbr, stack_out);
 		ndcontent->slen_out = slen_a;
 		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
 		ndcontent->cost_out = getnodecost(tmp, slen_a);
