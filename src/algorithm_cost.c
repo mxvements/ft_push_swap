@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:04:46 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/17 20:48:51 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/19 23:37:31 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ static t_dll	*findnextnode_inbounds(int nbr, t_dll **stack)
 
 	tmp = *stack;
 	tmpcont = tmp->content;
-	while (tmp->next && ((t_content *)tmp->content)->nbr < nbr)
+	while (tmp->next && tmpcont->nbr < nbr)
 	{
 		tmp = tmp->next;
 		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr > nbr)
+		if (tmpcont->nbr > nbr)
 			return (tmp);
 	}
 	tmp = ft_dlllast(*stack);
 	tmpcont = tmp->content;
-	while (tmp->prev && ((t_content *)tmp->content)->nbr > nbr)
+	while (tmp->prev && tmpcont->nbr > nbr)
 	{
 		tmp = tmp->prev;
 		tmpcont = tmp->content;
-		if (((t_content *)tmp->content)->nbr < nbr)
+		if (tmpcont->nbr < nbr)
 			return (tmp->next);
 	}
 	return (*stack);

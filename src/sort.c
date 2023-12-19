@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:22:22 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/17 23:41:59 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/19 23:53:51 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 {
-	t_dll	*node;
-
 	if (!stack_a || !stack_b)
-		return ;
-	node = *stack_a;
-	while (node->next->next->next != NULL)
-	{
-		node = node->next;
-		push_b(stack_a, stack_b);
-	}
+		return ; //TODO: protect the outcome on sort()
+	while (s_size(stack_a) > 3)
+		push_b(stack_a, stack_b); //check this
 }
 
 void	sort3_asc(t_dll **stack)
@@ -36,25 +30,25 @@ void	sort3_asc(t_dll **stack)
 	tmp = *stack;
 	tmpcontent = tmp->content;
 	lstcontent = ft_dlllast(*stack)->content;
-	if (tmpcontent->nbr > lstcontent->nbr)
+	nxtcontent = tmp->next->content;
+	if (tmpcontent->nbr > lstcontent->nbr && tmpcontent->nbr > nxtcontent->nbr)
 		rot(stack, 'a');
+	if (tmpcontent->nbr > lstcontent->nbr && tmpcontent->nbr < nxtcontent->nbr)
+		rvrot(stack, 'a');
 	tmp = *stack;
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
-		nxtcontent = tmp->next->content;
-		if (tmpcontent->nbr > nxtcontent->nbr)
-			swap(&tmp, 'a');
-		else
+		if (tmpcontent->nbr > ((t_content *)tmp->next->content)->nbr)
 		{
-			tmp = tmp->next;
-			continue ;
+			swap(&tmp, 'a');
+			tmp = *stack;
 		}
-		tmp = *stack;
+		else
+			tmp = tmp->next;
 	}
 }
 
-//TODO: optimize algorithm
 void	sort3_desc(t_dll **stack)
 {
 	t_dll		*tmp;
@@ -63,23 +57,24 @@ void	sort3_desc(t_dll **stack)
 	t_content	*lstcontent;
 
 	tmp = *stack;
-	lstcontent = ft_dlllast(*stack)->content;
 	tmpcontent = tmp->content;
-	if (tmpcontent->nbr < lstcontent->nbr)
+	lstcontent = ft_dlllast(*stack)->content;
+	nxtcontent = tmp->next->content;
+	if (tmpcontent->nbr < lstcontent->nbr && tmpcontent->nbr < nxtcontent->nbr)
 		rot(stack, 'b');
+	if (tmpcontent->nbr < lstcontent->nbr && tmpcontent->nbr > nxtcontent->nbr)
+		rvrot(stack, 'b');
 	tmp = *stack;
 	while (tmp->next)
 	{
 		tmpcontent = tmp->content;
-		nxtcontent = tmp->next->content;
-		if (tmpcontent->nbr < nxtcontent->nbr)
-			swap(&tmp, 'b');
-		else
+		if (tmpcontent->nbr < ((t_content *)tmp->next->content)->nbr)
 		{
-			tmp = tmp->next;
-			continue ;
+			swap(&tmp, 'b');
+			tmp = *stack;
 		}
-		tmp = *stack;
+		else
+			tmp = tmp->next;
 	}
 }
 
@@ -97,23 +92,21 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 {
 	if (s_size(stack_a) < 4)
 		sort3_c(stack_a, 'a');
-	else if (s_size(stack_a) < 6)
+	else
 	{
 		push_b_save3(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
-		sort3_c(stack_b, 'b');
-	}
-	else
-	{
-		while (s_size(stack_a) > 3)
-			push_b(stack_a, stack_b);
-		sort3_c(stack_a, 'a');
-		while (s_size(stack_b) >= 1)
+		if (s_size(stack_b) <= 3)
+			sort3_c(stack_b, 'b');
+		else
 		{
-			s_updateindx(stack_a);
-			s_updateindx(stack_b);
-			getcost(stack_a, stack_b);
-			movecheapest(stack_a, stack_b);
+			while (s_size(stack_b) >= 1)
+			{
+				s_updateindx(stack_a);
+				s_updateindx(stack_b);
+				getcost(stack_a, stack_b);
+				movecheapest(stack_a, stack_b);
+			}
 		}
 		//TODO: needs the final funct to rotate a until it is ordered
 	}
