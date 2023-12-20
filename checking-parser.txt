@@ -1,0 +1,97 @@
+luciama2@c3r13s6 21-push_swap % ./push_swap "" ""
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""     
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap " " 
+luciama2@c3r13s6 21-push_swap % ./push_swap " " " "
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap " " " " -2
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap " " " " -2 9 1
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap "" "" -2 9 1 
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 9 1 ""   
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 9 1 "10"
+pb
+sa
+pa
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 9 1 " " 
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 9 1 "0"
+pb
+ra
+sa
+pa
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 9    1 
+sa
+luciama2@c3r13s6 21-push_swap % ./push_swap -2     9    1 
+sa
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 0          
+luciama2@c3r13s6 21-push_swap % ./push_swap -2 0 0
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 0 0 
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap p    
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -2147483648
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -2147483649
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -21474836490
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -2147483649034567898765432345678
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -2147483649034567898765432345678 3
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -0                                
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -03
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap 0 -03 3 03
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""                                  
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap " "
+luciama2@c3r13s6 21-push_swap % ./push_swap " " ""
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap "" "" 
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 ""
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 " "
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 - 3
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2    
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 - 3
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 -6 
+ra
+sa
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 -6 ""
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 -6 " "
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""   7     2 -6 "''"
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap "''"                
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ''  
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap ""
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap " "
+luciama2@c3r13s6 21-push_swap % ./push_swap ' '
+luciama2@c3r13s6 21-push_swap % ./push_swap " 6 "
+luciama2@c3r13s6 21-push_swap % ./push_swap " 6 " "3"
+Error
+luciama2@c3r13s6 21-push_swap % ./push_swap 6  3     
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap "6" "3"
+ra
+luciama2@c3r13s6 21-push_swap % ./push_swap " 6 " "3"
