@@ -15,7 +15,7 @@
 void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 {
 	while (s_size(stack_a) > 3)
-		push_b(stack_a, stack_b); //check this
+		push_b(stack_a, stack_b);
 }
 
 void	sort3_asc(t_dll **stack)
@@ -107,4 +107,3 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 		lastrotate(stack_a);
 	}
 }
-

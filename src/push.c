@@ -17,15 +17,10 @@ void	push_a(t_dll **stack_a, t_dll **stack_b)
 	t_content	*tmp;
 	t_dll		*node;
 
-	//protections
-
-	//
 	tmp = (t_content *)s_pop(stack_b);
 	node = ft_dllnew((void *)(tmp));
 	s_push(stack_a, node);
-	//print
 	ft_putstr_fd("pa\n", 1);
-	//check final state?
 }
 
 void	push_b(t_dll **stack_a, t_dll **stack_b)
@@ -33,13 +28,8 @@ void	push_b(t_dll **stack_a, t_dll **stack_b)
 	t_content	*tmp;
 	t_dll		*node;
 
-	//protections
-
-	//
 	tmp = (t_content *)s_pop(stack_a);
 	node = ft_dllnew((void *)(tmp));
 	s_push(stack_b, node);
-	//print
 	ft_putstr_fd("pb\n", 1);
-	//check final state?
 }

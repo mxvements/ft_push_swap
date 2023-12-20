@@ -17,12 +17,9 @@ void	rot(t_dll **stack, char c)
 	t_content	*tmp;
 	t_dll		*tmpnode;
 
-	//protections?
-	//rotate
 	tmp = (t_content *)s_pop(stack);
 	tmpnode = ft_dllnew((void *)tmp);
 	ft_dlladd_back(stack, tmpnode);
-	//print
 	if (c == 'a')
 		ft_putstr_fd("ra\n", 1);
 	else if (c == 'b')
@@ -46,16 +43,13 @@ void	rvrot(t_dll **stack, char c)
 	t_dll		*last;
 	t_dll		*newlast;
 	t_content	*content;
-	
-	//protections?
-	//reverse rotate
+
 	last = ft_dlllast(*stack);
 	newlast = last->prev;
-	content = (t_content *)last->content; //WE CANT MAKE POP ON THE LAST NODE
+	content = (t_content *)last->content;
 	free(last);
-	newlast->next = NULL;	
+	newlast->next = NULL;
 	s_push(stack, ft_dllnew((void *)content));
-	//print
 	if (c == 'a')
 		ft_putstr_fd("rra\n", 1);
 	else if (c == 'b')
@@ -71,5 +65,5 @@ void	drvrot(t_dll **stack_a, t_dll **stack_b)
 {
 	rvrot(stack_a, 'c');
 	rvrot(stack_b, 'c');
-	ft_putstr_fd("rrr\n", 1);	
+	ft_putstr_fd("rrr\n", 1);
 }

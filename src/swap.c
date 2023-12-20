@@ -17,8 +17,6 @@ void	swap(t_dll **stack, char c)
 	t_content	*tmpnode;
 	t_content	*tmpnext;
 
-	if (!stack || !(*stack))
-		return ;
 	tmpnode = (*stack)->content;
 	tmpnext = (*stack)->next->content;
 	(*stack)->content = tmpnext;

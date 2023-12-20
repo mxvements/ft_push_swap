@@ -50,7 +50,7 @@ void	movecheapest(t_dll **stack_out, t_dll **stack_self)
 		{
 			movenode(node, stack_out, stack_self);
 			push_a(stack_out, stack_self);
-			break;
+			break ;
 		}
 	}
 }

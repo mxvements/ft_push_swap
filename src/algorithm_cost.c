@@ -41,7 +41,6 @@ static t_dll	*findnextnode_inbounds(int nbr, t_dll **stack)
 t_dll	*findnextnode(int nbr, t_dll **stack)
 {
 	t_dll		*tmp;
-	//check these var
 	t_dll		*min;
 	t_dll		*max;
 
@@ -70,11 +69,13 @@ int	getnodecost(t_dll *node, int slen)
 	t_content	*ndcontent;
 	int			i;
 	int			cost;
-	int			ro = 0;
-	int			rro = 0;
+	int			ro;
+	int			rro;
 
 	ndcontent = node->content;
 	i = ndcontent->indx;
+	ro = 0;
+	rro = 0;
 	if (i == 0)
 		cost = 0;
 	else if (i <= (slen / 2))

@@ -39,13 +39,8 @@ void	push_swap(char *s)
 	s_free(stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	/*
-	100nbr -> 700 moves
-	500nbr -> 5500 moves
-	*/
-
 	if (argc != 2)
 		return (0);
 	else
