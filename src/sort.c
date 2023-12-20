@@ -14,8 +14,6 @@
 
 void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 {
-	if (!stack_a || !stack_b)
-		return ; //TODO: protect the outcome on sort()
 	while (s_size(stack_a) > 3)
 		push_b(stack_a, stack_b); //check this
 }
@@ -102,13 +100,11 @@ void	sort(t_dll **stack_a, t_dll **stack_b)
 		{
 			while (s_size(stack_b) >= 1)
 			{
-				s_updateindx(stack_a);
-				s_updateindx(stack_b);
 				getcost(stack_a, stack_b);
 				movecheapest(stack_a, stack_b);
 			}
 		}
-		//TODO: needs the final funct to rotate a until it is ordered
+		lastrotate(stack_a);
 	}
 }
 

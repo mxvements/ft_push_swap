@@ -26,7 +26,13 @@ void	s_print(t_dll **head)
 	while (tmp)
 	{
 		cont = tmp->content;
-		printf("node %zu: %p -> nbr:%d, cost:%d (self:%d out:%d)\n", cont->indx, tmp->content, cont->nbr, cont->cost_tot, cont->cost, cont->cost_out);
+		write(1, "(idx) ", 6);
+		ft_putnbr_fd((int)cont->indx, 1);
+		write(1, "\t\t(nbr) ", 8);
+		ft_putnbr_fd(cont->nbr, 1);
+		write(1, "\t\t(cost_tot) ", 13);
+		ft_putnbr_fd(cont->cost_tot, 1);
+		write(1, "\n", 1);
 		tmp = tmp->next;
 	}
 	return ;

@@ -117,6 +117,8 @@ void	getcost(t_dll **stack_out, t_dll **stack_self)
 	const int	slen_b = s_size(stack_self);
 
 	node = (*stack_self);
+	s_updateindx(stack_out);
+	s_updateindx(stack_self);
 	while (node)
 	{
 		ndcontent = node->content;

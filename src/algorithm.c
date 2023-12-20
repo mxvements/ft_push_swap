@@ -53,5 +53,31 @@ void	movecheapest(t_dll **stack_out, t_dll **stack_self)
 			break;
 		}
 	}
-	
+}
+
+void	lastrotate(t_dll **stack)
+{
+	t_dll		*min;
+	t_dll		*max;
+	t_content	*mincont;
+	int			i;
+
+	min = *stack;
+	max = *stack;
+	s_updateindx(stack);
+	s_findbounds(stack, &min, &max);
+	mincont = min->content;
+	mincont->slen = s_size(stack);
+	if ((int)mincont->indx <= (mincont->slen / 2))
+	{
+		i = mincont->indx;
+		while (i-- > 0)
+			rot(stack, 'a');
+	}
+	else if ((int)mincont->indx > (mincont->slen / 2))
+	{
+		i = mincont->slen - mincont->indx;
+		while (i-- > 0)
+			rvrot(stack, 'a');
+	}
 }

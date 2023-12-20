@@ -5,21 +5,22 @@ CFLAGS=-Wall -Wextra -Werror -g3
 NAME=push_swap
 
 ########
+SRC=		main.c \
+			stack1.c \
+			stack2.c \
+			stack3.c \
+			automata.c \
+			sort.c \
+			swap.c \
+			push.c \
+			rotate.c \
+			algorithm_cost.c \
+			algorithm.c \
+			algorithm_moves.c
 
 MY_SOURCES_DIR=src
 
-MY_SOURCES=		src/main.c \
-				src/stack1.c \
-				src/stack2.c \
-				src/stack3.c \
-				src/automata.c \
-				src/sort.c \
-				src/swap.c \
-				src/push.c \
-				src/rotate.c \
-				src/algorithm_cost.c \
-				src/algorithm.c \
-				src/algorithm_moves.c
+MY_SOURCES=$(SRC:%.c=$(MY_SOURCES_DIR)/%.c)
 
 MY_OBJECTS=$(MY_SOURCES:%.c=%.o)
 
