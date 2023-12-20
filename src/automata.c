@@ -16,7 +16,7 @@ t_dll	**evalerror(t_dll **stack)
 {
 	s_free(stack);
 	stack = NULL;
-	printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	return (stack);
 }
 
@@ -24,7 +24,7 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 {
 	t_dll		*node;
 	t_content	*content;
-	int			nbr;
+	long		nbr;
 	int			flag;
 
 	flag = 0;
@@ -62,7 +62,7 @@ t_dll	**evalnewnode(t_dll **stack_a, const char *s)
 size_t	a_getstate(int i, int j)
 {
 	const size_t	t_states[][5] = {\
-		{0, 2, 3, 1}, \
+		{4, 2, 3, 1}, \
 		{1, 1, 1, 1}, \
 		{1, 1, 3, 1}, \
 		{4, 1, 3, 1}, \
@@ -101,7 +101,8 @@ t_dll	**a_parse(char *s, t_dll **stack_a)
 		ostate = a_changestate(s[i], state);
 		if ((state == 0 || state == 4) && (ostate == 2 || ostate == 3))
 			startnbr = i;
-		if ((state == 3 && ostate == 4) || (state == 4 && s[i + 1] == '\0'))
+		if ((state == 3 && ostate == 4) || (state == 3  && s[i + 1] == '\0')
+			|| (state == 0 && ostate == 3 && s[i + 1] == '\0'))
 		{
 			stack_a = evalnewnode(stack_a, (s + startnbr));
 			if (!stack_a)

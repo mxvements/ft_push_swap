@@ -19,7 +19,7 @@ void	s_print(t_dll **head)
 
 	if (head == NULL || *head == NULL)
 	{
-		printf("empty list\n");
+		ft_putstr_fd("Error\n", 2);
 		return ;
 	}
 	tmp = *head;

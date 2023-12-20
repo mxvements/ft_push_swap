@@ -88,21 +88,18 @@ void	sort3_c(t_dll **stack, char c)
 
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
-	if (s_size(stack_a) < 4)
+	if (s_size(stack_a) == 1)
+		return ; 
+	else if (s_size(stack_a) <= 3)
 		sort3_c(stack_a, 'a');
 	else
 	{
 		push_b_save3(stack_a, stack_b);
 		sort3_c(stack_a, 'a');
-		if (s_size(stack_b) <= 3)
-			sort3_c(stack_b, 'b');
-		else
+		while (s_size(stack_b) >= 1)
 		{
-			while (s_size(stack_b) >= 1)
-			{
-				getcost(stack_a, stack_b);
-				movecheapest(stack_a, stack_b);
-			}
+			getcost(stack_a, stack_b);
+			movecheapest(stack_a, stack_b);
 		}
 		lastrotate(stack_a);
 	}
