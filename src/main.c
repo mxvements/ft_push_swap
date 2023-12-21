@@ -12,7 +12,27 @@
 
 #include "../include/push_swap.h"
 
-void	push_swap(char *s)
+void	push_swap(char *s, t_dll **stack_a, t_dll **stack_b)
+{
+	if (stack_a && stack_b)
+	{
+		stack_a = a_parse(s, stack_a);
+		if (!stack_a)
+		{
+			s_free(stack_b);
+			return ;
+		}
+		if (*stack_a && s_issorted(stack_a) != 0)
+			sort(stack_a, stack_b);
+	}
+	if (stack_a || stack_b)
+	{
+		s_free(stack_a);
+		s_free(stack_b);
+	}
+}
+
+void	push_swap_wrapper(char *s)
 {
 	t_dll	**stack_a;
 	t_dll	**stack_b;
@@ -31,26 +51,9 @@ void	push_swap(char *s)
 		s_free(stack_b);
 		return ;
 	}
-	if (stack_a && stack_b)
-	{
-		stack_a = a_parse(s, stack_a);
-		if (!stack_a)
-		{
-			s_free(stack_b);
-			return ;
-		}
-		if (*stack_a && s_issorted(stack_a) != 0)
-			sort(stack_a, stack_b);
-	}
-	/*if (s_issorted(stack_a) == 0)
-		printf("stack ordenado\n");
-	s_print(stack_a);*/
-	if (stack_a || stack_b)
-	{
-		s_free(stack_a);
-		s_free(stack_b);
-	}
+	return (push_swap(s, stack_a, stack_b));
 }
+
 char	*strargs(int argc, char **argv)
 {
 	int		i;
@@ -73,29 +76,21 @@ char	*strargs(int argc, char **argv)
 	return (s);
 }
 
-/* check:
- INT_MIN
- "" "" -> segfault
-*/
 int	main(int argc, char **argv)
 {
-	int 	i;
+	int		i;
 	char	*s;
-	//int		argc = 2;
-	///char	*argv = "1 4 3 -5";
-	//int argc, char **argv
 
 	i = 1;
 	if (argc == 2)
-		push_swap(argv[i]);
+		push_swap_wrapper(argv[i]);
 	else if (argc > 2)
 	{
 		s = strargs(argc, argv);
-		push_swap(s);
+		push_swap_wrapper(s);
 		free(s);
 	}
 	else
 		ft_putstr_fd("Error\n", 2);
-	//system("leaks -q push_swap");
 	return (0);
 }

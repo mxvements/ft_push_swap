@@ -15,14 +15,13 @@
 
 # include "push_swap.h"
 
-//useful functs
 void	s_updateindx(t_dll **head);
 int		s_issorted(t_dll **head);
 int		s_isnodedup(t_dll **head, t_dll *node);
-//generic functs
+
 t_dll	**s_inithead(void);
 void	s_print(t_dll **head);
-void 	s_push(t_dll **head, t_dll *newnode);
+void	s_push(t_dll **head, t_dll *newnode);
 void	*s_pop(t_dll **head);
 int		s_size(t_dll **head);
 void	s_free(t_dll **head);
