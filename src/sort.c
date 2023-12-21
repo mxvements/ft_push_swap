@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:22:22 by luciama2          #+#    #+#             */
 /*   Updated: 2023/12/19 23:53:51 by lmmielgo         ###   ########.fr       */

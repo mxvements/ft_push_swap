@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:37:37 by luciama2          #+#    #+#             */
 /*   Updated: 2023/12/17 23:15:43 by lmmielgo         ###   ########.fr       */
@@ -34,12 +34,11 @@ void	push_swap(char *s)
 	if (stack_a && stack_b)
 	{
 		stack_a = a_parse(s, stack_a);
-		if (!stack_a )
+		if (!stack_a)
 		{
 			s_free(stack_b);
 			return ;
 		}
-		//if s_size(stack_a == 1) nothing to sort
 		if (*stack_a)
 			sort(stack_a, stack_b);
 	}
