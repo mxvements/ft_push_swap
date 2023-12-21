@@ -13,58 +13,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-// Function to shuffle an array using the Fisher-Yates Shuffle algorithm
-void fisherYatesShuffle(int arr[], int size) {
-    for (int i = size - 1; i > 0; --i) {
-        int j = rand() % (i + 1);
-        // Swap arr[i] and arr[j]
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+#include "../libft/libft.h"
+
+void	fisher_yates_shuffle(int arr[], int size)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = size;
+	while (--i > 0)
+	{
+		j = rand() % (i + 1);
+		temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
 }
 
-// Function to introduce more "noise" by shuffling the array multiple times
-void introduceNoise(int arr[], int size, int numShuffles) {
-    for (int i = 0; i < numShuffles; ++i) {
-        fisherYatesShuffle(arr, size);
-    }
+void	introduce_noise(int arr[], int size, int numShuffles)
+{
+	int	i;
+
+	i = -1;
+	while (++i < numShuffles)
+		fisher_yates_shuffle(arr, size);
 }
 
-int main() {
-    srand(time(NULL));
+int	main(void)
+{
+	int	n;
+	int	*unique_ints;
+	int	i;
+	int	num_shuffles;
 
-    int N;
-    printf("Enter the value of N: ");
-    scanf("%d", &N);
-
-    // Create an array of sequential integers from 0 to N-1
-    int *uniqueInts = malloc(N * sizeof(int));
-    for (int i = 0; i < N; ++i) {
-        uniqueInts[i] = i;
-    }
-
-    // Shuffle the array using Fisher-Yates Shuffle
-    fisherYatesShuffle(uniqueInts, N);
-
-    // Introduce more "noise" by shuffling the array multiple times
-    int numShuffles = 10; // You can adjust this value based on the desired level of noise
-    introduceNoise(uniqueInts, N, numShuffles);
-
-    // Print the shuffled unique random integers
-    printf("Randomized Unique Integers: ");
-    for (int i = 0; i < N; ++i) {
-        printf("%d ", uniqueInts[i]);
-    }
-    printf("\n");
-
-    // Free the allocated memory
-    free(uniqueInts);
-
-    return 0;
+	srand(time(NULL));
+	ft_putstr_fd("Enter the value of N: ", 1);
+	scanf("%d", &n);
+	unique_ints = malloc(n * sizeof(int));
+	i = -1;
+	while (++i < n)
+		unique_ints[i] = i;
+	fisher_yates_shuffle(unique_ints, n);
+	num_shuffles = 10;
+	introduce_noise(unique_ints, n, num_shuffles);
+	ft_putstr_fd("Randomized Unique Integers: ", 1);
+	i = -1;
+	while (++i < n)
+	{
+		ft_putstr_fd(ft_itoa(unique_ints[i]), 1);
+		ft_putstr_fd(" ", 1);
+	}
+	ft_putstr_fd("\n", 1);
+	free(unique_ints);
+	return (0);
 }

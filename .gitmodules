@@ -1,3 +1,6 @@
 [submodule "libft"]
 	path = libft
 	url = git@github.com:mxvements/ft_libft.git
+[submodule "push_swap_Tester"]
+	path = push_swap_Tester
+	url = git@github.com:PepeSegura/push_swap_Tester.git
