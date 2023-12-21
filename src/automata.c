@@ -101,7 +101,7 @@ t_dll	**a_parse(char *s, t_dll **stack_a)
 		ostate = a_changestate(s[i], state);
 		if ((state == 0 || state == 4) && (ostate == 2 || ostate == 3))
 			startnbr = i;
-		if ((state == 3 && ostate == 4) || (ostate == 3  && s[i + 1] == '\0'))
+		if ((state == 3 && ostate == 4) || (ostate == 3 && s[i + 1] == '\0'))
 		{
 			stack_a = evalnewnode(stack_a, (s + startnbr));
 			if (!stack_a)

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:22:22 by luciama2          #+#    #+#             */
 /*   Updated: 2023/12/19 23:53:51 by lmmielgo         ###   ########.fr       */
@@ -20,30 +20,27 @@ void	push_b_save3(t_dll **stack_a, t_dll **stack_b)
 
 void	sort3_asc(t_dll **stack)
 {
-	t_dll		*tmp;
-	t_content	*tmpcontent;
-	t_content	*nxtcontent;
-	t_content	*lstcontent;
+	const t_content	*a = (*stack)->content;
+	const t_content	*b = (*stack)->next->content;
+	const t_content	*z = ft_dlllast(*stack)->content;
 
-	tmp = *stack;
-	tmpcontent = tmp->content;
-	lstcontent = ft_dlllast(*stack)->content;
-	nxtcontent = tmp->next->content;
-	if (tmpcontent->nbr > lstcontent->nbr && tmpcontent->nbr > nxtcontent->nbr)
-		rot(stack, 'a');
-	if (tmpcontent->nbr > lstcontent->nbr && tmpcontent->nbr < nxtcontent->nbr)
-		rvrot(stack, 'a');
-	tmp = *stack;
-	while (tmp->next)
+	if (a->nbr > z->nbr && a->nbr > b->nbr && b->nbr == z->nbr) //2 1
+		swap(stack, 'a');
+	else if (a->nbr > z->nbr && a->nbr > b->nbr && b->nbr > z->nbr) //3 2 1
 	{
-		tmpcontent = tmp->content;
-		if (tmpcontent->nbr > ((t_content *)tmp->next->content)->nbr)
-		{
-			swap(&tmp, 'a');
-			tmp = *stack;
-		}
-		else
-			tmp = tmp->next;
+		swap(stack, 'a');
+		rvrot(stack, 'a');
+	}
+	else if (a->nbr > z->nbr && a->nbr > b->nbr && b->nbr < z->nbr) //3 1 2
+		rot(stack, 'a');
+	else if (a->nbr > z->nbr && a->nbr < b->nbr && b->nbr > z->nbr) //2 3 1
+		rvrot(stack, 'a');
+	else if (a->nbr < z->nbr && a->nbr > b->nbr && b->nbr < z->nbr) //2 1 3
+		swap(stack, 'a');
+	else if (a->nbr < z->nbr && a->nbr < b->nbr && b->nbr > z->nbr) //1 3 2
+	{
+		rvrot(stack, 'a');
+		swap(stack, 'a');
 	}
 }
 
@@ -89,7 +86,7 @@ void	sort3_c(t_dll **stack, char c)
 void	sort(t_dll **stack_a, t_dll **stack_b)
 {
 	if (s_size(stack_a) == 1)
-		return ; 
+		return ;
 	else if (s_size(stack_a) <= 3)
 		sort3_c(stack_a, 'a');
 	else

@@ -39,7 +39,7 @@ void	push_swap(char *s)
 			s_free(stack_b);
 			return ;
 		}
-		if (*stack_a)
+		if (*stack_a && s_issorted(stack_a) != 0)
 			sort(stack_a, stack_b);
 	}
 	/*if (s_issorted(stack_a) == 0)
