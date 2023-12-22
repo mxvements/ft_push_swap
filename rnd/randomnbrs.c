@@ -6,7 +6,7 @@
 /*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:51:49 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/19 19:51:53 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:22:42 by luciama2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(void)
 	fisher_yates_shuffle(unique_ints, n);
 	num_shuffles = 10;
 	introduce_noise(unique_ints, n, num_shuffles);
-	ft_putstr_fd("./push_swap \"", 1);
+	ft_putstr_fd("time ./push_swap \"", 1);
 	i = -1;
 	while (++i < n)
 	{
