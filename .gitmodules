@@ -4,3 +4,6 @@
 [submodule "push_swap_Tester"]
 	path = push_swap_Tester
 	url = git@github.com:PepeSegura/push_swap_Tester.git
+[submodule "Push-Swap-Tester"]
+	path = Push-Swap-Tester
+	url = git@github.com:gemartin99/Push-Swap-Tester.git
