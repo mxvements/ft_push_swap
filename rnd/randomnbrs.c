@@ -60,14 +60,14 @@ int	main(void)
 	fisher_yates_shuffle(unique_ints, n);
 	num_shuffles = 10;
 	introduce_noise(unique_ints, n, num_shuffles);
-	ft_putstr_fd("time ./push_swap \"", 1);
+	ft_putstr_fd("ARG=\"", 1);
 	i = -1;
 	while (++i < n)
 	{
 		ft_putstr_fd(ft_itoa(unique_ints[i]), 1);
 		ft_putstr_fd(" ", 1);
 	}
-	ft_putstr_fd("\" | wc -l\n", 1);
+	ft_putstr_fd("\"; ./push_swap $ARG | wc -l\n", 1);
 	free(unique_ints);
 	return (0);
 }

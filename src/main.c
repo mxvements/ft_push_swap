@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 		push_swap_wrapper(s);
 		free(s);
 	}
-	else
-		ft_putstr_fd("Error\n", 2);
+	/*else
+		ft_putstr_fd("Error\n", 2);*/
 	return (0);
 }

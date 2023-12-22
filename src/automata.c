@@ -66,7 +66,7 @@ size_t	a_getstate(int i, int j)
 		{1, 1, 1, 1}, \
 		{1, 1, 3, 1}, \
 		{4, 1, 3, 1}, \
-		{1, 2, 3, 1} \
+		{4, 2, 3, 1} \
 	};
 
 	return (t_states[i][j]);
