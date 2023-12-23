@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:52:36 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/19 17:52:38 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:04:23 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	s_updateindx(t_dll **head)
+int	s_updateindx(t_dll **head)
 {
 	size_t		i;
 	t_dll		*tmp;
@@ -27,6 +27,7 @@ void	s_updateindx(t_dll **head)
 		i++;
 		tmp = tmp->next;
 	}
+	return (i);
 }
 
 int	s_issorted(t_dll **head)

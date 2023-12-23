@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:07:43 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/17 01:26:39 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/23 11:13:51 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ typedef struct s_nodecontent
 	size_t	indx;
 	int		cost;
 	int		slen;
-	size_t	indx_out;
-	int		cost_out;
-	int		slen_out;
+	t_dll	*nd_out;
 }	t_content;
 
 void	swap(t_dll **stack, char c);

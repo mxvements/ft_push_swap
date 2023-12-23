@@ -6,7 +6,7 @@
 /*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:04:46 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/19 23:37:31 by lmmielgo         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:33:21 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,24 +88,24 @@ int	getnodecost(t_dll *node, int slen)
 
 int	gettotalcost(t_dll *node)
 {
-	t_content	*content;
-	int			indx;
+	t_content	*cnt;
+	t_content	*cnt_out;
 	int			indx_out;
 	int			cost_max;
 	int			cost_tot;
 
-	content = node->content;
-	indx = content->indx;
-	indx_out = content->indx_out;
-	if (content->cost >= content->cost_out)
-		cost_max = content->cost;
+	cnt = node->content;
+	cnt_out = (t_content *)(cnt->nd_out->content);
+	indx_out = (int)cnt_out->indx;
+	if (cnt->cost >= cnt_out->cost)
+		cost_max = cnt->cost;
 	else
-		cost_max = content->cost_out;
-	if ((indx <= (content->slen / 2) && indx_out <= (content->slen_out / 2))
-		|| (indx > (content->slen / 2) && indx_out > (content->slen_out / 2)))
+		cost_max = cnt_out->cost;
+	if (((int)cnt->indx <= (cnt->slen / 2) && indx_out <= (cnt_out->slen / 2))
+		|| ((int)cnt->indx > (cnt->slen / 2) && indx_out > (cnt_out->slen / 2)))
 		cost_tot = cost_max;
 	else
-		cost_tot = content->cost + content->cost_out;
+		cost_tot = cnt->cost + cnt_out->cost;
 	return (cost_tot);
 }
 
@@ -114,21 +114,19 @@ void	getcost(t_dll **stack_out, t_dll **stack_self)
 	t_dll		*tmp;
 	t_dll		*node;
 	t_content	*ndcontent;
-	const int	slen_a = s_size(stack_out);
-	const int	slen_b = s_size(stack_self);
+	const int	slen_a = s_updateindx(stack_out);
+	const int	slen_b = s_updateindx(stack_self);
 
 	node = (*stack_self);
-	s_updateindx(stack_out);
-	s_updateindx(stack_self);
 	while (node)
 	{
 		ndcontent = node->content;
 		ndcontent->slen = slen_b;
 		ndcontent->cost = getnodecost(node, slen_b);
 		tmp = findnextnode(ndcontent->nbr, stack_out);
-		ndcontent->slen_out = slen_a;
-		ndcontent->indx_out = ((t_content *)tmp->content)->indx;
-		ndcontent->cost_out = getnodecost(tmp, slen_a);
+		ndcontent->nd_out = tmp;
+		((t_content *)(tmp->content))->slen = slen_a;
+		((t_content *)(tmp->content))->cost = getnodecost(tmp, slen_a);
 		ndcontent->cost_tot = gettotalcost(node);
 		node = node->next;
 	}

@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   randomnbrs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:51:49 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/22 11:22:42 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:56:27 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

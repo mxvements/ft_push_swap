@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luciama2 <luciama2@student.42madrid>       +#+  +:+       +#+        */
+/*   By: lmmielgo <lmmielgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:41 by luciama2          #+#    #+#             */
-/*   Updated: 2023/12/08 13:58:42 by luciama2         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:04:38 by lmmielgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "push_swap.h"
 
-void	s_updateindx(t_dll **head);
+int		s_updateindx(t_dll **head);
 int		s_issorted(t_dll **head);
 int		s_isnodedup(t_dll **head, t_dll *node);
 
